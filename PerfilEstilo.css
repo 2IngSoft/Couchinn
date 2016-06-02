@@ -1,0 +1,69 @@
+body {
+  background-image: url(Imgs/cabana.jpg);
+  background-size: cover;
+}
+.main, aside, footer{
+  background-color: rgba(255, 255, 255, 0.75);
+  position: relative;
+  padding: 5px 5px;
+  margin: 10px;
+}
+header{
+  background-color: green;
+  position: relative;
+  padding: 5px 5px;
+  margin: -8px;
+}
+.logo{
+  display: inline-block;
+  border-style: dashed;
+  border-radius: 10px;
+  background: gray;
+}
+nav a{
+  position: absolute;
+  left: 1250px;
+  top: 10px;
+  color: black;
+}
+.main{
+  display: inline-block;
+  left: 25%;
+  width: 50%;
+  top: 10px;
+  height: 490px;
+}
+.imgPerfil{
+  position: absolute;
+  top: 50px;
+  left: 280px;
+}
+.main article{
+  position: relative;
+  top: 180px;
+  left: 50px;
+}
+.main article h2{
+  position: relative;
+  left: 20px;
+}
+.datos{
+  display: inline-block;
+  position: absolute;
+  left: 150px;
+  top: 35px;
+  list-style: none;
+}
+.editar{
+  display: inline-block;
+  position: absolute;
+  left: 250px;
+  top: 250px;
+}
+footer{
+  text-align: center;
+  top: 30px;
+  height: 30px;
+  margin: -5px;
+  padding: 0px 0px;
+}
