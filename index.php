@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  $_SESSION['llamada']="index.php";
+  if(isset($_SESSION["usuario"])){
+    header("location: couchInnIndexSesionIniciada.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,7 +21,8 @@
       <div id="linkRegistrarse">
         <a href="couchinnRegistrarse.php">¡Registrate!</a>(es gratis)
       </div>
-      <form action="iniciar_sesion.php" method="get" id="formularioIniciarSesion">
+
+      <form action="iniciar_sesion.php" method="post" id="formularioIniciarSesion">
         <table>
           <tr>
             <td>
@@ -29,7 +38,7 @@
           <tr>
             <td></td>
             <td>
-              <a href="calculadora.php" id="mjeContrasenia">¿Olvidaste tu contraseña?</a>
+              <a href="olvidaste_tu_contrasenia.php" id="mjeContrasenia">¿Olvidaste tu contraseña?</a>
             </td>
             <td></td>
           </tr>
@@ -37,13 +46,20 @@
       </form>
     </header>
 
-    <aside>
+    <?php
+    if(isset($_SESSION["error"])){
+      echo '<script> alert("'.$_SESSION["error"].'");</script>';
+      unset($_SESSION["error"]);
+    }
+    ?>
+
+    <!--<aside>
       <div id="buscador">
         <form id="encapsulador2">
           <input type="text" name="buscadorPorTexto" value="Buscar">
           <input type="button" name="buscar" value="O">
-          <!--EL BOTON DEBERÍA TENER UNA LUPA-->
-        </form>
+          EL BOTON DEBERÍA TENER UNA LUPA-->
+        <!--</form>
       </div>
       <div id="filtros">
       <p id="filtrar">Filtrar:</p>
@@ -116,7 +132,7 @@
 
     <section>
 
-    </section>
+    </section>-->
 
   </body>
 </html>

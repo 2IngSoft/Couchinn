@@ -1,7 +1,5 @@
-<?php
-  require("establece_conexion.php");
-  establecer_conexion($conexion);
-?>
+<?php session_start();
+      $_SESSION['llamada']="couchinnRegistrarse.php"?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,12 +10,11 @@
   </head>
 
   <body>
+
     <header id="encabezadoPrincipal">
       <figure id=logoCouchInn><a href="index.php"><img src="CouchInnLogo.png" width="270px" height="80px"/></a></figure>
-      <!--<div id="linkRegistrarse">
-        <a href="couchinnRegistrarse.php">¡Registrate!</a>(es gratis)
-      </div>-->
-      <form action="iniciar_sesion.php" method="get" id="formularioIniciarSesion">
+
+      <form action="iniciar_sesion.php" method="post" id="formularioIniciarSesion">
         <table>
           <tr>
             <td>
@@ -33,7 +30,7 @@
           <tr>
             <td></td>
             <td>
-              <a href="calculadora.php" id="mjeContrasenia">¿Olvidaste tu contraseña?</a>
+              <a href="olvidaste_tu_contrasenia.php" id="mjeContrasenia">¿Olvidaste tu contraseña?</a>
             </td>
             <td></td>
           </tr>
@@ -42,7 +39,7 @@
     </header>
 
     <p id="cartelRegistrarse">¡Solo necesitamos unos datos tuyos!</p>
-    <form action="pruebaValidacionRegistrarse.php" method="get" autocomplete="off" id="formularioRegistrarseDivision">
+    <form action="pruebaValidacionRegistrarse.php" method="post" autocomplete="off" id="formularioRegistrarseDivision">
       <table id="formularioRegistrarse">
         <tr>
           <td><label>Nombre:</label></td>
@@ -55,16 +52,11 @@
         <tr>
           <td><label>Cumpleaños:</label></td>
           <td>
-            <input type="date" name="fecha_nac" required="true" min="1920-01-01">
-            <!--<input type="day" required="true" maxlength="2" size="1" name="dia" id="dia" placeholder="DD">
-            <label> / <input type="number" required="true" maxlength="2" size="1" name="mes" id="mes" placeholder="MM"></label>
-            <label> / <input type="text" required="true" maxlength="4" size="2" name="año" id="año" placeholder="AAAA"></label>
-            </label><br>
-            -->
+            <input type="date" name="fecha_nac" required="true" min="1920-01-01" max="<?php $año=date('Y')-13; echo date('$fecha'-'m'-'d'); ?>">
           </tr>
           <tr>
             <td><label>EMail: </label></td>
-            <td><input type="email" name="email" required="true" placeholder="alguien@algo.com"></td>
+            <td><input type="email" name="email_usuario" required="true" placeholder="alguien@algo.com"></td>
           </tr>
           <tr>
             <td><label>Telefono: </label></td>
@@ -72,7 +64,7 @@
           </tr>
           <tr>
             <td><label>Contraseña: </label></td>
-            <td><input type="password" required="true" maxlength="20" size="25" name="contraseña"></td>
+            <td><input type="password" required="true" maxlength="20" size="25" name="contraseña_usuario"></td>
           </tr>
           <tr>
             <td><label>Confirmar contraseña: </label></td>
@@ -82,18 +74,18 @@
             <td><label>Pregunta de seguridad:</td>
             <td>
               <!--REVISAR-->
-              <select name='pregunta_de_seguridad' required='true'>";
-                <?php
-                  $consulta="SELECT * FROM ";
-                  $resultado=mysqli_query($consulta);
-                  mysqli_
-                ?>
-              </select>
-              <!--<select name="pregunta_de_seguridad" required="true">
-                <option>nombre de tu vieja</option>
-                <option>nombre de tu perro</option>
-                <option>nombre de tu hermana</option>
-              </select>-->
+              <?php
+                require("establece_conexion.php");
+                establecer_conexion($conexion);
+                $sql="SELECT * FROM `preguntasdeseguridad`";
+                $resultado=mysqli_query($conexion,$sql);
+                echo "<select name='pregunta_de_seguridad' required='true'>";
+                while ($fila=mysqli_fetch_row($resultado)) {
+                  echo "<option>";
+                  echo $fila[1] . "</option>";
+                }
+                echo "</select>";
+              ?>
             </td>
             </tr>
             <tr>
@@ -103,8 +95,24 @@
             <tr>
               <td colspan="2"><input type="submit" name="enviar" value="Enviar!" id="enviarFormulario"></td>
             </tr>
+            <tr>
+              <td>
+                <?php
+
+                if(isset($_SESSION["error"]))
+                  echo '<script> alert("'.$_SESSION["error"].'");</script>';
+                  unset($_SESSION["error"]);
+                ?>
+              </td>
+            </tr>
           </table>
         </form>
+        <?php
+        if(isset($_SESSION["error"])){
+          echo '<script> alert("'.$_SESSION["error"].'");</script>';
+          unset($_SESSION["error"]);
+        }
+        ?>
 
   </body>
 </html>

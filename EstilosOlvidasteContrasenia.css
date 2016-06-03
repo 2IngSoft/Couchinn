@@ -1,0 +1,28 @@
+#tablaPrincipal{
+  border-color: grey;
+  border-radius: 10px;
+  border-color: grey;
+  border-style: dashed;
+  background-color: white;
+  margin-left: 33%;
+  margin-top: 5%;
+  width: 35%;
+}
+
+#dataTablaPrincipal{
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: Arial;
+  text-align: center;
+}
+
+#texto{
+  padding-bottom: 10px;
+}
+
+ #input_texto_tabla{
+   width: 99%;
+   margin-bottom: 10px;
+   margin-top: 10px;
+ }
