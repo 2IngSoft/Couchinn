@@ -9,12 +9,12 @@
   <body>
     <header>
       <div class="logoFondo">
-        <a href="CouchInnPaginaPrincipal.html">
+        <a href="index.php">
           <img src="Imgs/CouchInnLogo.jpg" width="300px" alt="Esto deberia ser una imagen" class="logo" />
         </a>
       </div>
       <nav>
-        <a href="CouchInnPaginaPrincipal.html">Cerrar sesion</a>
+        <a href="cerrar_sesion.php">Cerrar sesion</a>
       </nav>
     </header>
     <section class="wrapper"> <!-- CONTENEDOR -->
@@ -47,6 +47,7 @@
                   echo ($fila['5']),"<br>";
                   echo ($fila['4']),"<br>";
                   echo ($fila['6']),"<br>";
+                  echo ($fila['7']),"<br>";
                ?>
             </ul>
             <a href="PerfilEdit.php">
