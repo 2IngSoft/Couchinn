@@ -10,7 +10,7 @@
     <header>
       <div class="logoFondo">
         <a href="index.php">
-          <img src="Imgs/CouchInnLogo.jpg" width="300px" alt="Esto deberia ser una imagen" class="logo" />
+          <img src="CouchInnLogo.png" width="300px" alt="Esto deberia ser una imagen" class="logo" />
         </a>
       </div>
       <nav>
@@ -19,7 +19,7 @@
     </header>
     <section class="wrapper"> <!-- CONTENEDOR -->
       <section class="main">
-        <img src="Imgs/HTML5Logo.png" width="100px" alt="Esto deberia ser una imagen" class="imgPerfil" />
+        <!--<img src="HTML5Logo.png" width="100px" alt="Esto deberia ser una imagen" class="imgPerfil" />-->
         <article>
           <h2>Perfil</h2>
             <ul>
@@ -42,12 +42,12 @@
                   echo "ERROR";
                 }
                 $fila=mysqli_fetch_row($DATOS);
-                  echo ($fila['1']),"<br>";
-                  echo ($fila['2']),"<br>";
-                  echo ($fila['5']),"<br>";
-                  echo ($fila['4']),"<br>";
-                  echo ($fila['6']),"<br>";
-                  echo ($fila['7']),"<br>";
+                echo ($fila['1']),"<br>";
+                echo ($fila['2']),"<br>";
+                echo ($fila['5']),"<br>";
+                echo ($fila['4']),"<br>";
+                echo ($fila['6']),"<br>";
+                echo ($fila['7']),"<br>";
                ?>
             </ul>
             <a href="PerfilEdit.php">
