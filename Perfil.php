@@ -31,14 +31,25 @@
               <li><label for="preg">Pregunta de seguridad:</label></li>
             </ul>
             <ul class="datos">
-              <li><label>Nombre</label></li>
-              <li><label>Apellido</label></li>
-              <li><label>aaaaaaaa@aaaaaaaa</label></li>
-              <li><label>aa/aa/aaaa</label></li>
-              <li><label>1111111</label></li>
-              <li><label>Nombre de mi mascota</label></li>
+              <?php
+                session_start();
+                $conexion=mysqli_connect('localhost','root') or die ('No se pudo conectar'.mysql_error());
+                mysqli_select_db($conexion,'couchinn') or die('No se pudo selecionar la base de datos'.mysql_error());
+                $email=$_SESSION['usuario'];
+                $consulta="SELECT * FROM usuarios WHERE EMAIL='$email'";
+                $DATOS=mysqli_query($conexion,$consulta);
+                if ($DATOS==false) {
+                  echo "ERROR";
+                }
+                $fila=mysqli_fetch_row($DATOS);
+                  echo ($fila['1']),"<br>";
+                  echo ($fila['2']),"<br>";
+                  echo ($fila['5']),"<br>";
+                  echo ($fila['4']),"<br>";
+                  echo ($fila['6']),"<br>";
+               ?>
             </ul>
-            <a href="PerfilEdit.html">
+            <a href="PerfilEdit.php">
               <input type="button" name="editar" value="Editar" class="editar">
             </a>
         </article>
