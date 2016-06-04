@@ -70,12 +70,12 @@
   <body>
     <header>
       <div class="logoFondo">
-        <a href="CouchInnPaginaPrincipal.html">
+        <a href="index.php">
           <img src="Imgs/CouchInnLogo.jpg" width="300px" alt="Esto deberia ser una imagen" class="logo" />
         </a>
       </div>
       <nav>
-        <a href="CouchInnPaginaPrincipal.html">Cerrar sesion</a>
+        <a href="cerrar_sesion.php">Cerrar sesion</a>
       </nav>
     </header>
     <section class="wrapper"> <!-- CONTENEDOR -->
@@ -101,6 +101,9 @@
               </ul>
               <input type="submit" class="editar" value="Aceptar" />
             </form>
+            <a href="Perfil.php">
+              <input type="button" name="cancelar" value="Cancelar" class="cancelar">
+            </a>
         </article>
       </section>
     </section>
