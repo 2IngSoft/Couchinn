@@ -5,33 +5,24 @@ $_SESSION["error"]="EL Email ingresado ya esta registrado";
 $nombre = $_POST["nombre_usuario"];
 $apellido = $_POST["apellido_usuario"];
 $nac = $_POST["fecha_nac"];
-$email = $_POST["email_usuario"];
+$email = addslashes($_POST["email_usuario"]);
 $tel = $_POST["telefono"];
-$contra = $_POST["contraseña_usuario"];
-$confirmacion = $_POST["confirma_contraseña"];
+$contra = addslashes($_POST["contraseña_usuario"]);
+$confirmacion = addslashes($_POST["confirma_contraseña"]);
 $pregunta = $_POST["pregunta_de_seguridad"];
-$res = $_POST["respuesta_de_seguridad"];
+$res = addslashes($_POST["respuesta_de_seguridad"]);
 
-if(isset($_POST[$nombre])){
-  $_SESSION["nombre"]="$nombre";
-}
-if(isset($_POST[$apellido])){
-  $_SESSION["apellido"]="$apellido";
-}
-if(isset($_POST[$nac])){
-  $_SESSION["nac"]="$nac";
-}
-if(isset($_POST[$email])){
-  $_SESSION["email"]="$email";
-}
-if(isset($_POST[$tel])){
-  $_SESSION["tel"]="$tel";
-}
-if(isset($_POST[$tel])){
-  $_SESSION["tel"]="$tel";
-}
+$_SESSION['nombre']=$nombre;
+$_SESSION['apellido']=$apellido;
+$_SESSION['nac']=$nac;
+$_SESSION['email']=$email;
+$_SESSION['tel']=$tel;
+$_SESSION['contra']=$contra;
+$_SESSION['confirma']=$confirmacion;
+$_SESSION['pregunta']=$pregunta;
+$_SESSION['res']=$res;
 
-if($contra==$confirmacion){
+//if($contra==$confirmacion){
 
   require("establece_conexion.php");
   establecer_conexion($conexion);
@@ -65,13 +56,20 @@ if($contra==$confirmacion){
         $_SESSION["usuario"]=$_POST["email_usuario"];
         $_SESSION["nombre"]=$nombre;
         $_SESSION["apellido"]=$apellido;
+        unset($_SESSION['email']);
+        unset($_SESSION['nac']);
+        unset($_SESSION['tel']);
+        unset($_SESSION['contra']);
+        unset($_SESSION['confirma']);
+        unset($_SESSION['pregunta']);
+        unset($_SESSION['res']);
         header("location:couchInnIndexSesionIniciada.php");
       }
     }
   }
-  mysqli_close($conexion);
-} else {
+//mysqli_close($conexion);
+/*} else {
   $_SESSION["error"]="La contrasenia y la confirmacion no coinciden";
   header("location: couchinnRegistrarse.php");
-}
+}*/
 ?>

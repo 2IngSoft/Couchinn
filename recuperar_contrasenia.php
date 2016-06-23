@@ -79,9 +79,9 @@
       if($respuesta==$fila["RESPUESTASEG"]){
         header("location: cambiar_contrasenia_olvidaste_contrasenia.php");
       } else {
-        echo "<script type='text/javascript'>
-          alert('La respuesta es incorrecta');
-        </script>";
+        echo "<script type='text/javascript'>";
+        echo "alert('La respuesta ingresada es incorrecta');"
+        echo "</script>";
       }
     }
     ?>

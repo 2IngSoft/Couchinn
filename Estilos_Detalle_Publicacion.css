@@ -1,0 +1,24 @@
+.contenedor_publicacion_detalle{
+  font-family: Arial;
+  text-align: center;
+  margin-bottom: 5px;
+  width: 60%;
+  margin-left: 20%;
+}
+.contenedor_publicacion_detalle div{
+  margin-top: 20px;
+}
+.galeria{
+  width: 450px;
+  margin-left: 22.5%;
+}
+.seleccion{
+  margin-bottom: -20px;
+}
+.titulo_detalle{
+  font-size: 25px;
+}
+.descripcion_detalle{
+  width: 60%;
+  margin-left: 20%;
+}

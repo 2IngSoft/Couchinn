@@ -1,5 +1,6 @@
 header{
-  margin: -8px;
+  margin: -8px -8px 15px -8px;
+  text-align: center;
 }
 /*  ---> RESET DEL HEADER <---  */
 
@@ -10,17 +11,10 @@ body{
 
 #encabezadoPrincipal{
   background-color: green;
-  padding: 0.01%;
   height: 125px;
 }
 
-#premium_foto_crearPost{
-  margin-right: -25px;
-  float:left;
-}
-
 #logoCouchInn{
-  float: left;
   border-style: dashed;
   border-color: grey;
   border-width: 3px;
@@ -29,18 +23,29 @@ body{
   width: 220px;
 }
 
-#cartel_premium{
-  margin-left: 15px;
+/*#premium_foto_crearPost{
+  margin-left: 20px;
+  margin-top: 2.6%;
+  padding-right: 5px;
+}*/
+
+#nombreApellido{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#contieneCartel{
+  background-color: #8bb835;
+  border-style: solid;
+  border-color: #8bb835;
+  border-width: 5px;
+  border-radius: 10px;
   text-align: center;
   font-weight: bold;
-  font-style: oblique;
+  color: #393939;
 }
 
-#cartel_premium_sub{
-  margin-left: 60px;
-}
-
-#sectorImagenUsuario{
+/*#sectorImagenUsuario{
   margin-top: 2px;
   text-align: center;
   font-weight: bold;
@@ -60,9 +65,16 @@ body{
   border-color: #8bb835;
 }
 
-/*#opcion_usuario{
+#opcion_usuario{
   padding-top: 35px;
 }*/
+
+#tabla_opciones{
+  border-radius: 20px;
+  border-color: grey;
+  border-style: dashed;
+  padding: 8px;
+}
 
 #submit_opcion_usuario{
  border-style: dotted;
@@ -76,13 +88,25 @@ body{
 #submit_opcion_usuario:hover{
   background-color: #8bb835;
   border-color: white;
+  cursor: pointer;
 }
 
-#tabla_opciones{
-  border-radius: 20px;
-  border-color: grey;
-  border-style: dashed;
-  padding: 8px;
-  margin-top: 23px;
-  margin-bottom: 0px;
+#desabilitado{
+  background-color: green;
+  border-style: dotted;
+  color: black;
+  height: 50px;
+  font-weight: bold;
+  font-size: 13.7px;
+  background-color: #8bb835;
+  border-color: white;
+}
+
+.boton1{
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.boton2{
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }

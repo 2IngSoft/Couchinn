@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,55 +16,64 @@
       }
     </style>
   </head>
-  <body>
-
-    <header id="encabezadoPrincipal">
-      <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="CouchInnLogo.png" width="270px" height="80px"/></a></figure>
-      <table id="premium_foto_crearPost">
-        <tr>
-          <td>
-            <span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="" id="cartel_premium_sub">¡Hacé click aquí!</a></span>
-          </td>
-          <td>
-            <figure id="sectorImagenUsuario"><a href=""><img src="lenny_concentrado.png" height="90px" width="90px" id="imagenPerfil"/></a>
-              <figcaption><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'];?></figcaption>
-            </figure><!--CONECTAR CON BD Y TRAER IMAGEN DEL USUARIO-->
-          </td>
-        </tr>
-      </table>
-      <table id="tabla_opciones">
-        <tr>
-          <td>
-            <form id="opcion_usuario" action="" method="post">
-              <input class="boton1" type="submit" name="mi_perfil" value="Mi Perfil" id="submit_opcion_usuario">
-            </form>
-          </td>
-          <td>
-            <form id="opcion_usuario" action="" method="post">
-              <input type="submit" name="publicar" value="Publicar" id="submit_opcion_usuario">
-            </form>
-          </td>
-          <td>
-            <form id="opcion_usuario" action="" method="post">
-              <input type="submit" name="mis_reservas" value="Mis Reservas" id="submit_opcion_usuario">
-            </form>
-          </td>
-          <td>
-            <form id="opcion_usuario" action="" method="post">
-              <input type="submit" name="mis_publicaciones" value="Mis Publicaciones" id="submit_opcion_usuario">
-            </form>
-          </td>
-          <td>
-            <form id="opcion_usuario" action="" method="post">
-              <input type="submit" name="mis_solicitudes" value="Mis Solicitudes" id="submit_opcion_usuario">
-            </form>
-          </td>
-          <td>
-            <form id="opcion_usuario" method="post">
-              <input class="boton2" type="submit" name="cerrar_sesion" value="Cerrar Sesion" id="submit_opcion_usuario">
-            </form>
-            <?php if(isset($_POST['cerrar_sesion'])){session_destroy();header("location: index.php");}?>
-          </td>
-        </tr>
-      </table>
-    </header>
+  <header id="encabezadoPrincipal">
+    <table>
+      <tr>
+        <td>
+          <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="CouchInnLogo.png" width="270px" height="80px"/></a></figure>
+        </td>
+        <td>
+          <table id="premium_foto_crearPost">
+            <tr>
+              <td id="contieneCartel">
+                <span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="" id="cartel_premium_sub">¡Hacé click aquí!</a></span>
+              </td>
+              <td>
+                <!--<figure id="sectorImagenUsuario"><a href=""><img src="lenny_concentrado.png" height="90px" width="90px" id="imagenPerfil"/></a>
+                <figcaption>--><a href="Perfil.html"><span id="nombreApellido"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'];?></span></a><!--</figcaption>
+              </figure>--><!--CONECTAR CON BD Y TRAER IMAGEN DEL USUARIO-->
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <table id="tabla_opciones">
+            <tr>
+              <td>
+                <form id="opcion_usuario" action="" method="post">
+                  <input class="boton1" type="submit" name="mi_perfil" value="Mi Perfil" id="submit_opcion_usuario">
+                </form>
+              </td>
+              <td>
+                <form id="opcion_usuario" action="crear_publicacion.php" method="post" onclick="this.form.submit()">
+                  <input type="submit" name="publicar" value="Publicar" id="submit_opcion_usuario">
+                </form>
+              </td>
+              <td>
+                <form id="opcion_usuario" action="" method="post">
+                  <input type="submit" name="mis_reservas" value="Mis Reservas" id="submit_opcion_usuario">
+                </form>
+              </td>
+              <td>
+                <form id="opcion_usuario" action="ver_publicaciones.php" method="post">
+                  <input type="submit" name="mis_publicaciones" value="Mis Publicaciones" id="submit_opcion_usuario">
+                </form>
+              </td>
+              <td>
+                <form id="opcion_usuario" action="" method="post">
+                  <input type="submit" name="mis_solicitudes" value="Mis Solicitudes" id="submit_opcion_usuario">
+                </form>
+              </td>
+              <td>
+                <form action="cerrar_sesion.php" id="opcion_usuario" method="post">
+                  <input class="boton2" type="submit" name="cerrar_sesion" value="Cerrar Sesion" id="submit_opcion_usuario">
+                </form>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </header>
+  </body>
+</html>

@@ -13,8 +13,8 @@
       $_SESSION['bienvenida']=true;
       header("location: cambiar_contrasenia_olvidaste_contrasenia.php");
     } else {
-      echo "<type='text/javascript'>
-              alert('La respuesta ingresada es incorrecta. :/');
+      echo "<script type='text/javascript'>
+              alert('La respuesta ingresada es incorrecta.');
             </script>";
     }
   }
@@ -95,7 +95,7 @@
                 $deshabilita=false;
               } else {
                 echo "<script type='text/javascript'>
-                alert('El email ingresado no esta registrado. :/');
+                alert('El email ingresado no esta registrado.');
                 </script>";
                 $deshabilita=true;
               }

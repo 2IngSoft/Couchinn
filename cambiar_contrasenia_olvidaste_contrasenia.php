@@ -3,12 +3,6 @@
   if(!isset($_SESSION["usuario"])){   //q pasa cuando no hay nada en $_SESSION
     header("location: index.php");
   }
-  if($_SESSION["bienvenida"]==true){
-    echo "<script type='text/javascript'>
-      alert('Iniciaste sesion!! :D');
-    </script>";
-    $_SESSION["bienvenida"]=false;
-  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,14 +74,34 @@
   </head>
 
   <body>
-    <?php
-    if($_SESSION["bienvenida"]==true){
-      echo "<script type='text/javascript'>
-        alert('INICIASTE SESION');
-      </script>";
-      $_SESSION["bienvenida"]=false;
-    }
-    ?>
+    <script type="text/javascript">
+      function validarPasswd(){
+        var p1 = document.getElementById("contrasenia").value;
+        var p2 = document.getElementById("confirmaContrasenia").value;
+        if(p1.length >= 8){
+          var espacios = false;
+          var cont = 0;
+          while (!espacios && (cont < p1.length)) {
+            if (p1.charAt(cont) == " ")
+              espacios = true;
+            cont++;
+          }
+          if (espacios) {
+            alert ("La contraseña no puede contener espacios en blanco");
+            return false;
+          }
+          if (p1 != p2) {
+            alert("La contraseña y la confirmacion no coinciden");
+            return false;
+          } else {
+            return true;
+          }
+        } else {
+          alert("La contraseña debe tener al menos 8 caracteres.")
+          return false;
+        }
+      }
+    </script>
     <table>
       <tr>
         <td>
@@ -96,7 +110,7 @@
       </tr>
       <tr>
         <td>
-          <form method="post">
+          <form method="post" onsubmit="return validarPasswd()">
             <table>
               <tr>
                 <td>
@@ -105,7 +119,7 @@
               </tr>
               <tr>
                 <td>
-                  <input class="entradaTexto" type="password" name="contraseña" required="true" autofocus="true">
+                  <input id="contrasenia" class="entradaTexto" type="password" name="contraseña" required="true" autofocus="true" placeholder="Debe tener al menos 8 caracteres">
                 </td>
               </tr>
               <tr>
@@ -115,7 +129,7 @@
               </tr>
               <tr>
                 <td>
-                  <input class="entradaTexto" type="password" name="contraseña_confirmacion" required="true">
+                  <input id="confirmaContrasenia" class="entradaTexto" type="password" name="contraseña_confirmacion" required="true">
                 </td>
               </tr>
               <tr>
@@ -137,10 +151,14 @@
         establecer_conexion($conexion);
         $sql="UPDATE USUARIOS SET CONTRASEÑA='$contraseña' WHERE EMAIL='$email'";
         $resultado=mysqli_query($conexion,$sql);
-        header("location: couchInnIndexSesionIniciada.php");
+        if($_SESSION["usuario"]!="angelica.portacelutti@gmail.com"){
+          header("location: couchInnIndexSesionIniciada.php");
+        } else {
+          header("location: indexAdmin.php");
+        }
       } else {
         echo "<script type='text/javascript'>";
-          echo "alert('La contraseña y la confirmación no coinciden')";
+        echo 'alert("La contraseña y la confirmación no coinciden")';
         echo "</script>";
       }
     }?>
