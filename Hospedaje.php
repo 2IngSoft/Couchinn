@@ -1,7 +1,9 @@
 <?php
   if ($_POST) {
     session_start();
-    $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`) VALUES ('usuarioX','$_POST['comentario']')";
+    $email=$_SESSION['usuario'];
+    $comen=$_POST['comentario'];
+    $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`) VALUES ('$email','$comen')";
     $result=mysqli_query($conn,$ins);
     header("Location: Hospedaje.php");
   }
