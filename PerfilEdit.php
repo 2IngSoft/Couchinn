@@ -58,16 +58,17 @@
         {
             //exito No hay errores
             session_start();
-            $conn = mysqli_connect("localhost", "root");
+            $conn = mysqli_connect("localhost","root","","couchinn");
             if (!$conn) {
               die("Connection failed: " . mysqli_connect_error());
             }
-            mysqli_select_db($conn,'couchinn') or die('No se pudo selecionar la base de datos'.mysql_error());
-            $email=$_SESSION['usuario'];
+            $email=$_SESSION["usuario"];
             $consulta="SELECT * FROM usuarios WHERE EMAIL='$email'";
             $DATOS=mysqli_query($conn,$consulta);
             if ($DATOS==false) {
               echo "ERROR";
+            }else {
+              echo "datos true";
             }
             $fila=mysqli_fetch_row($DATOS);
             if(empty($_POST['nombre']))
@@ -107,17 +108,15 @@
             }else {
               $contr = $_POST['contrasena'];
             }
-            $nom = 'Ignacio'; //Prueba actualizar un dato
-            $sql = "UPDATE `usuarios` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASENA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta' WHERE `usuarios`.`EMAIL`= '$email' ";
+            $PdS=$_POST['pregunta_de_seguridad'];
+            $sql = "UPDATE `usuarios` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASENA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta',`PREGUNTASEG` = '$PdS' WHERE `usuarios`.`EMAIL`= '$email' ";
             if (mysqli_query($conn, $sql)) {
               echo "Record updated successfully";
+              header("Location: Perfil.php");
             } else {
               echo "Error updating record: " . mysqli_error($conn);
             }
             mysqli_close($conn);
-
-            header("Location: Perfil.php");
-            exit();
         }
     }
 ?>
@@ -150,16 +149,23 @@
               <ul class="datos">
                 <li><label for="nombre">Nombre: <input type="text" placeholder="Ingrese su nombre" maxlength="10" name="nombre" value="<?php if(isset($_POST['nombre'])) echo $_POST['nombre']; ?>"> <?php if(isset($errors['nombre'])) echo $errors['nombre']; ?> </label></li>
                 <li><label for="apellido">Apellido: <input type="text" placeholder="Ingrese su apellido" maxlength="10" name="apellido" value="<?php if(isset($_POST['apellido'])) echo $_POST['apellido']; ?>"> <?php if(isset($errors['apellido'])) echo $errors['apellido']; ?> </label></li>
-                <li><label for="fecNac">Fecha de nacimiento: <input type="date" placeholder="Ingrese su Fecha de nacimiento" maxlength="10" name="FecNac" value="<?php if(isset($_POST['FecNac'])) echo $_POST['FecNac']; ?>"> <?php if(isset($errors['FecNac'])) echo $errors['FecNac']; ?> </label></li>
-                <li><label for="telefono">Telefono: <input type="tel" placeholder="Ingrese su telefono" maxlength="10" name="telefono" value="<?php if(isset($_POST['telefono'])) echo $_POST['telefono']; ?>"> <?php if(isset($errors['FecNac'])) echo $errors['FecNac']; ?> </label></li>
+                <li><label for="fecNac">Fecha de nacimiento: <input type="date" placeholder="Año-Mes-Dia" maxlength="10" name="FecNac" value="<?php if(isset($_POST['FecNac'])) echo $_POST['FecNac']; ?>"> <?php if(isset($errors['FecNac'])) echo $errors['FecNac']; ?> </label></li>
+                <li><label for="telefono">Telefono: <input type="tel" placeholder="Ingrese su telefono" maxlength="10" name="telefono" value="<?php if(isset($_POST['telefono'])) echo $_POST['telefono']; ?>"> <?php if(isset($errors['telefono'])) echo $errors['telefono']; ?> </label></li>
                 <li><label for="contrasena">Contrasena: <input type="password" placeholder="Ingrese su contrasena" maxlength="10" name="contrasena" value="<?php if(isset($_POST['contrasena'])) echo $_POST['contrasena']; ?>"> <?php if(isset($errors['contrasena'])) echo $errors['contrasena']; ?> </label></li>
                 <li><label for="contrasena2">Confirmar: <input type="password" placeholder="Confirmar contrasena" maxlength="10" name="contrasena2" value="<?php if(isset($_POST['contrasena2'])) echo $_POST['contrasena2']; ?>"> <?php if(isset($errors['contrasena2'])) echo $errors['contrasena2']; ?> </label></li>
                 <li><label for="preg">Pregunta de seguridad:
-                  <select>
-                    <option value="op1">Nombre de mi mascota</option>
-                    <option value="op2">Mi mejor amigo</option>
-                    <option value="op3">Mi primera escuela</option>
-                  </select> </label></li>
+                  <?php
+                    $conn = mysqli_connect("localhost","root","","couchinn");
+                    $sql="SELECT * FROM `preguntasdeseguridad`";
+                    $resultado=mysqli_query($conn,$sql);
+                    echo "<select name='pregunta_de_seguridad' required='true'>";
+                    while ($fila=mysqli_fetch_row($resultado)) {
+                      echo "<option>";
+                      echo $fila[1] . "</option>";
+                    }
+                    echo "</select>";
+                  ?>
+                </label></li>
                 <li><label for="resp"> Respuesta: <input type="password" placeholder="Respuesta" maxlength="10" name="resp" value="<?php if(isset($_POST['resp'])) echo $_POST['resp']; ?>"> <?php if(isset($errors['resp'])) echo $errors['resp']; ?> </label></li>
               </ul>
               <input type="submit" class="editar" value="Aceptar" />
