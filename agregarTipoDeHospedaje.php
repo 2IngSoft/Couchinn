@@ -2,6 +2,16 @@
     header('Content-type: text/html; charset=iso-8859-1') ;
     ?>
 <!DOCTYPE html>
+<script language="javascript" type="text/javascript">
+function justNumbers(e)
+{
+   var keynum = window.event ? window.event.keyCode : e.which;
+   if ((keynum == 8) || (keynum == 46))
+        return true;
+    return /\d/.test(String.fromCharCode(keynum));
+}
+
+</script>
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,9 +21,9 @@
   </head>
   <body>
 <header id="encabezadoPrincipal">
-  <figure id=logoCouchInn><a href="index.php"><img src="Imagenes/CouchInnLogo.png" width="270px" height="80px"/></a></figure>
+  <figure id=logoCouchInn><a href="index.php"><img src="../Imagenes/CouchInnLogo.png" width="270px" height="80px"/></a></figure>
   <form id="opcion_usuario" method="post">
-    <input class="boton2" type="submit" name="cerrar_sesion" value="Cerrar Sesion" id="submit_opcion_usuario">
+    <input type="submit" name="cerrar_sesion" value="Cerrar Sesion" id="submit_opcion_usuario">
   </form>
   <?php if(isset($_POST['cerrar_sesion'])){session_destroy();header("location: index.php");}?>
 </header>
@@ -36,25 +46,38 @@
         echo "<br>";}
       mysqli_close($link);   ?>
        </div>
-  <form action="insertarTipo.php" method="get" id="opciones" >
-       <input type="text" name="tipoNuevo" placeholder="Ingrese un nuevo tipo">
-       <input type="submit" name="agregar" value="Agregar"><a i></a>
+  <form action="insertarTipo.php" method="get" id="opciones" name="pepe">
+       <input class="EstiloImput" type="text" name="tipoNuevo" id="tipoNuevo" placeholder="Ingrese un nuevo tipo">
+       <input class="EstiloBoton" type="submit" name="agregar" value="Agregar"><a i></a>
   </form>
   <br>
   <br>
   <form action=" eliminar.php"  method ="get" >
-      <input type= "text" name="tipoaEliminar" placeholder="Ingrese el tipo a eliminar">
-      <input type="submit" name="eliminar" value="Eliminar"><a i></a>
+      <input class="EstiloImput" type= "text" name="tipoaEliminar" placeholder="Ingrese el tipo a eliminar">
+      <input class="EstiloBoton"  type="submit" name="eliminar" value="Eliminar"><a i></a>
   <br>
   <br>
 </form>
-  <form action="modificar.php" method = "get">
-     <input size="30" type="text" name="tipoAModificar" placeholder="Ingrese el tipo que quiere modificar">
+  <form action="modificar.php" method = "get" id="Modificacion">
+     <input class="EstiloImput" size="30" type="text" name="tipoAModificar" id="tipoAModificar" placeholder="Ingrese el tipo que quiere modificar">
      <br>
      <br>
-     <input type="text" name="tipoNuevo" placeholder="Ingrese el nuevo tipo">
-     <input type="submit" name="modificar" value="Modificar">
+     <input class="EstiloImput" type="text" name="tipoNuevo" placeholder="Ingrese el nuevo tipo">
+     <input class="EstiloBoton" type="submit" name="modificar" value="Modificar">
    </form>
 </aside>
+
+<form action="cambiarTarifa.php" method= "get" class="aside" id="cambiarT">
+  Usuarios premiun
+  <br>
+  <br>
+    La tarifa actual es de: $<?php $fp = fopen("\Users\Ivana\Desktop\precio.txt", "r");
+                                  $f=fgets($fp);
+                                  echo $f;?>
+    <br>
+    <br>
+    <input type="text" class="EstiloImput" name="tarifaNueva" id="tarifaNueva" required="true" onkeypress="return justNumbers(event);" placeholder="Ingrese solo numeros">
+    <input type="submit" class="EstiloBoton" value="Cambiar tarifa">
+</form>
   </body>
   </html>
