@@ -58,7 +58,7 @@
         if(count($errors) == 0)
         {
             //exito No hay errores
-            session_start();
+            //session_start();
             $conn = mysqli_connect("localhost","root","","couchinn");
             if (!$conn) {
               die("Connection failed: " . mysqli_connect_error());
