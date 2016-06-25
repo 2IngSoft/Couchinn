@@ -9,24 +9,29 @@
   <head>
     <meta charset="utf-8">
     <title>CouchInn</title>
-    <link rel="stylesheet" href="EstilosCabeceraSesionIniciada.css" charset="utf-8">
+    <link rel="stylesheet" href="Estilos/EstilosCabeceraSesionIniciada.css" charset="utf-8">
   </head>
   <body>
     <header id="encabezadoPrincipal">
       <table>
         <tr>
           <td>
-            <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="CouchInnLogo.png" width="270px" height="80px"/></a></figure>
+            <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="Imagenes/CouchInnLogo.png" width="270px" height="80px"/></a></figure>
           </td>
           <td>
             <table id="premium_foto_crearPost">
               <tr>
                 <td id="contieneCartel">
-                  <span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="" id="cartel_premium_sub">¡Hacé click aquí!</a></span>
-                </td>
+                  <?php
+
+                  if($_SESSION['premium']==0){
+                    echo '<span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="Premiun.php" id="cartel_premium_sub">¡Hacé click aquí!</a></span>';
+                  }else{
+                    echo 'Ya sos premium!';
+                  }?>
                 <td>
                   <!--<figure id="sectorImagenUsuario"><a href=""><img src="lenny_concentrado.png" height="90px" width="90px" id="imagenPerfil"/></a>
-                  <figcaption>--><a href="Perfil.html"><span id="nombreApellido"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'];?></span></a><!--</figcaption>
+                  <figcaption>--><a href="Perfil.php"><span id="nombreApellido"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'];?></span></a><!--</figcaption>
                 </figure>--><!--CONECTAR CON BD Y TRAER IMAGEN DEL USUARIO-->
                 </td>
               </tr>
