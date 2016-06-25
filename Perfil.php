@@ -1,5 +1,5 @@
 <?php
-  require("PerfilHeader.php");
+  require("couchInnIndexSesionIniciada.php");
  ?>
 <!DOCTYPE html>
 <html>

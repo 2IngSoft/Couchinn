@@ -1,5 +1,5 @@
 <?php
-  require("PerfilHeader.php");
+  require("couchInnIndexSesionIniciada.php");
     if($_POST)
     {
         $errors = array();

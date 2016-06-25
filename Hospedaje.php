@@ -1,5 +1,5 @@
 <?php
-  require("PerfilHeader.php");
+  require("couchInnIndexSesionIniciada.php");
   $conn = mysqli_connect("localhost","root","","couchinn");
   if ($_POST) {
     //session_start();
