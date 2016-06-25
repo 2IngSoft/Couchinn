@@ -1,4 +1,5 @@
 <?php
+  require("couchInnIndexSesionIniciada.php");
     if($_POST)
     {
         $errors = array();
@@ -109,7 +110,7 @@
               $contr = $_POST['contrasena'];
             }
             $PdS=$_POST['pregunta_de_seguridad'];
-            $sql = "UPDATE `usuarios` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASENA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta',`PREGUNTASEG` = '$PdS' WHERE `usuarios`.`EMAIL`= '$email' ";
+            $sql = "UPDATE `usuarios` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASEÑA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta',`PREGUNTASEG` = '$PdS' WHERE `usuarios`.`EMAIL`= '$email' ";
             if (mysqli_query($conn, $sql)) {
               echo "Record updated successfully";
               header("Location: Perfil.php");
@@ -130,19 +131,8 @@
     <title>Perfil</title>
   </head>
   <body>
-    <header>
-      <div class="logoFondo">
-        <a href="index.php">
-          <img src="CouchInnLogo.png" width="300px" alt="Esto deberia ser una imagen" class="logo" />
-        </a>
-      </div>
-      <nav>
-        <a href="cerrar_sesion.php">Cerrar sesion</a>
-      </nav>
-    </header>
     <section class="wrapper"> <!-- CONTENEDOR -->
       <section class="main">
-        <!--<img src="Imgs/HTML5Logo.png" width="100px" alt="Esto deberia ser una imagen" class="imgPerfil" />-->
         <article>
           <h2>Perfil</h2>
             <form class="formulario" action="" method="post">

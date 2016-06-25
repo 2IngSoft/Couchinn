@@ -1,46 +1,23 @@
 body {
-  background-image: url(Imgs/cabana.jpg);
+  background-image: url(Fondo_Main_3.jpg);
   background-size: cover;
 }
 .main, aside, footer{
   background-color: rgba(255, 255, 255, 0.75);
-  position: relative;
+  position: absolute;
   padding: 5px 5px;
   margin: 10px;
 }
-header{
-  background-color: green;
-  position: relative;
-  padding: 5px 5px;
-  margin: -8px;
-}
-.logo{
-  display: inline-block;
-  border-style: dashed;
-  border-radius: 10px;
-  background: gray;
-}
-nav a{
-  position: absolute;
-  left: 1250px;
-  top: 10px;
-  color: black;
-}
 .main{
   display: inline-block;
-  left: 25%;
-  width: 50%;
-  top: 10px;
+  left: 350px;
+  width: 700px;
+  top: 150px;
   height: 490px;
-}
-.imgPerfil{
-  position: absolute;
-  top: 50px;
-  left: 280px;
 }
 .main article{
   position: relative;
-  top: 180px;
+  top: 100px;
   left: 50px;
 }
 .main article h2{
@@ -52,10 +29,16 @@ nav a{
   position: absolute;
   top: 35px;
 }
+.cancelar{
+  display: inline-block;
+  position: absolute;
+  left: 200px;
+  top: 250px;
+}
 .editar{
   display: inline-block;
   position: absolute;
-  left: 250px;
+  left: 300px;
   top: 250px;
 }
 footer{

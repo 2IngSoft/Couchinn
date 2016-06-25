@@ -1,3 +1,6 @@
+<?php
+  require("couchInnIndexSesionIniciada.php");
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,16 +10,6 @@
     <title>Perfil</title>
   </head>
   <body>
-    <header>
-      <div class="logoFondo">
-        <a href="index.php">
-          <img src="CouchInnLogo.png" width="300px" alt="Esto deberia ser una imagen" class="logo" />
-        </a>
-      </div>
-      <nav>
-        <a href="cerrar_sesion.php">Cerrar sesion</a>
-      </nav>
-    </header>
     <section class="wrapper"> <!-- CONTENEDOR -->
       <section class="main">
         <!--<img src="HTML5Logo.png" width="100px" alt="Esto deberia ser una imagen" class="imgPerfil" />-->
@@ -32,7 +25,7 @@
             </ul>
             <ul class="datos">
               <?php
-                session_start();
+                //session_start();
                 $conexion=mysqli_connect('localhost','root') or die ('No se pudo conectar'.mysql_error());
                 mysqli_select_db($conexion,'couchinn') or die('No se pudo selecionar la base de datos'.mysql_error());
                 $email=$_SESSION['usuario'];
