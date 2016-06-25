@@ -1,5 +1,5 @@
 <?php
-  require("couchInnIndexSesionIniciada.php");
+  require("PerfilHeader.php");
     if($_POST)
     {
         $errors = array();
@@ -110,7 +110,7 @@
               $contr = $_POST['contrasena'];
             }
             $PdS=$_POST['pregunta_de_seguridad'];
-            $sql = "UPDATE `usuarios` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASEÑA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta',`PREGUNTASEG` = '$PdS' WHERE `usuarios`.`EMAIL`= '$email' ";
+            $sql = "UPDATE `USUARIOS` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASEÑA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta',`PREGUNTASEG` = '$PdS' WHERE `usuarios`.`EMAIL`= '$email' ";
             if (mysqli_query($conn, $sql)) {
               echo "Record updated successfully";
               header("Location: Perfil.php");
