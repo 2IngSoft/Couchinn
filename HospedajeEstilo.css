@@ -1,0 +1,57 @@
+body {
+  background-image: url(Fondo_Main_3.jpg);
+  background-size: cover;
+}
+.main, aside{
+  background-color: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  top: 150px;
+  padding: 5px 5px;
+  margin: 10px;
+}
+.main{
+  left: 50px;
+  width: 50%;
+  height: 490px;
+}
+.main article h2{
+  position: relative;
+  left: 20px;
+}
+aside{
+  left: 900px;
+  width: 500px;
+  height: 500px;
+}
+aside p{
+  position: relative;
+  display: inline-block;
+  left: 50px;
+  margin: 0px;
+  padding: 0px;
+}
+aside form{
+  position: relative;
+  display: inline-block;
+  width: 450px;
+  height: 110px;
+  margin: 5px;
+  padding: 5px;
+}
+.cajaComs1, .cajaComs2{
+  position: relative;
+  display: inline-block;
+  resize: none;
+  width: 450px;
+}
+.cajaComs1{
+  height: 300px;
+  left: 20px;
+}
+.cajaComs2{
+  left: 10px;
+}
+.Bcomnt{
+  position: relative;
+  left: 200px;
+}
