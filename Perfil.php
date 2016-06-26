@@ -37,10 +37,14 @@
                 $fila=mysqli_fetch_row($DATOS);
                 echo ($fila['1']),"<br>";
                 echo ($fila['2']),"<br>";
-                echo ($fila['5']),"<br>";
                 echo ($fila['4']),"<br>";
-                echo ($fila['6']),"<br>";
-                echo ($fila['7']),"<br>";
+                echo ($fila['3']),"<br>";
+                echo ($fila['5']),"<br>";
+                $equis=$fila['9'];
+                $consulta="SELECT TEXTO FROM preguntasdeseguridad WHERE idPREGUNTASDESEGURIDAD='$equis'";
+                $DATO=mysqli_query($conexion,$consulta);
+                $dato2=mysqli_fetch_row($DATO);
+                echo ($dato2['0']);
                ?>
             </ul>
             <a href="PerfilEdit.php">
