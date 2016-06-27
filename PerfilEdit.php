@@ -130,6 +130,9 @@
               document.getElementById("alErr").removeAttribute("hidden");
             }
           }
+          //function Ocultar(){
+          //  document.getElementById("alOK").setAttribute("hidden");
+          //}
         </script>
         <article>
           <h2 id="test">Perfil</h2>
@@ -157,15 +160,15 @@
               </ul>
               <input type="submit" class="editar" value="Enviar" />
               <?php
-                if ($tf=="2") {
-                  echo '<script> Alerta("2"); </script>';
-                  sleep(0.5);
-                  mysqli_close($conn);
-                }else {
-                  if ($tf=="1") {
+                if ($tf>"0") {
+                  if ($tf=="2") {
+                    echo '<script> Alerta("2"); </script>';
+                  }else {
                     echo '<script> Alerta("1"); </script>';
-                    sleep(0.5);
                   }
+                  //sleep(1);
+                  //echo '<script> Ocultar(); </script>';
+                  mysqli_close($conn);
                 }
                ?>
             </form>

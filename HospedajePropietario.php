@@ -1,12 +1,22 @@
 <?php
   require("couchInnIndexSesionIniciada.php");
   $conn = mysqli_connect("localhost","root","","couchinn");
+  $NumComent="Vacio";
   if ($_POST) {
     //session_start();
     if (!($_POST['comentario']=="")) {
       $email=$_SESSION['usuario'];
       $comen=$_POST['comentario'];
-      $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`) VALUES ('$email','$comen')";
+      if (isset($_POST['Coment'])) {
+          $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`) VALUES ('$email','$comen')";
+      }else {
+        foreach($_POST as $kkey => $vvalue) {
+          if (substr($kkey,0,3)=="sub") {
+            $NumComent=substr($kkey,3);
+          }
+        }
+        $ins = "UPDATE `comentarios` SET `Respuesta` = '$comen' WHERE `comentarios`.`ID` = '$NumComent' ";
+      }
       $result=mysqli_query($conn,$ins);
       //header("Location: HospedajePropietario.php");
     }
@@ -48,7 +58,9 @@
               $cont+=1;
               echo "$cont - <span class='Rnom'>$nom</span> - $com";
               echo "<br>";
-              if (! $rta=="") {
+              if ($rta=="") {
+                echo "<input type='submit' name=\"sub$cont\" value=\"Responder\" class='Rresponder'>";
+              }else {
                 echo "<span class='Rrespuesta'>-$rta</span>";
               }
               echo "<br>";
