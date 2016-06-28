@@ -12,7 +12,7 @@ body {
 }
 .main{
   left: 50px;
-  width: 52%;
+  width: 800px;
   height: 500px;
 }
 .main article h2{
@@ -41,11 +41,6 @@ footer{
 .Rresponder, .Rrespuesta{
   position: relative;
   left: 20px;
-}
-.Rresponder{
-  color: blue;
-  border-style: none;
-  background-color: transparent;
 }
 .Rnom{
   font-weight: bold;
