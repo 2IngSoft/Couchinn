@@ -46,7 +46,7 @@
               $com = $row[2];
               $rta=$row[3];
               $cont+=1;
-              echo "$cont - <span class='Rnom'>$nom</span> - $com";
+              echo "* <span class='Rnom'>$nom</span> - $com";
               echo "<br>";
               if (! $rta=="") {
                 echo "<span class='Rrespuesta'>-$rta</span>";

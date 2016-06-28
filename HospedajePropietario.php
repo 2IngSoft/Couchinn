@@ -50,16 +50,15 @@
         <?php
           $sql = "SELECT * FROM `comentarios`";
           if ($findcomments=mysqli_query($conn, $sql)) {
-            $cont=0;
             while ($row = mysqli_fetch_row($findcomments)) {
+              $id = $row[0];
               $nom = $row[1];
               $com = $row[2];
               $rta=$row[3];
-              $cont+=1;
-              echo "$cont - <span class='Rnom'>$nom</span> - $com";
+              echo "* <span class='Rnom'>$nom</span> - $com";
               echo "<br>";
               if ($rta=="") {
-                echo "<input type='submit' name=\"sub$cont\" value=\"Responder\" class='Rresponder'>";
+                echo "<input type='submit' name=\"sub$id\" value=\"Responder\" class='Rresponder'>";
               }else {
                 echo "<span class='Rrespuesta'>-$rta</span>";
               }
