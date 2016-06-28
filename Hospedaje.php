@@ -40,12 +40,10 @@
         <?php
           $sql = "SELECT * FROM `comentarios`";
           if ($findcomments=mysqli_query($conn, $sql)) {
-            $cont=0;
             while ($row = mysqli_fetch_row($findcomments)) {
               $nom = $row[1];
               $com = $row[2];
               $rta=$row[3];
-              $cont+=1;
               echo "* <span class='Rnom'>$nom</span> - $com";
               echo "<br>";
               if (! $rta=="") {
