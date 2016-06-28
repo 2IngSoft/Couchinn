@@ -70,7 +70,7 @@
          ?>
       </div>
       <textarea name="comentario" rows="3" cols="50" maxlength="200" class="cajaComs2"></textarea>
-      <input type="submit" name="Coment" value="Publicar" class="Bcomnt">
+      <input type="submit" name="Coment" value="Comentar" class="Bcomnt">
     </form>
   </footer>
 </html>
