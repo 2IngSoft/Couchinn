@@ -16,7 +16,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="HospedajePropietarioEstilo.css">
+    <link rel="stylesheet" href="HospedajeEstilo.css">
     <link rel="shortcut icon" type="image/x-icon" href="Imgs/icono.ico">
     <title>Hospedaje</title>
   </head>
@@ -59,7 +59,7 @@
          ?>
       </div>
       <textarea name="comentario" rows="3" cols="50" maxlength="200" class="cajaComs2"></textarea>
-      <input type="submit" name="Coment" value="Comentar" class="Bcomnt">
+      <input type="submit" name="Coment" value="Publicar" class="Bcomnt">
     </form>
   </footer>
 </html>
