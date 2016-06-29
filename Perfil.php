@@ -6,7 +6,6 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="PerfilEstilo.css">
-    <link rel="shortcut icon" type="image/x-icon" href="Imgs/icono.ico">
     <title>Perfil</title>
   </head>
   <body>
