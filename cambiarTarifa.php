@@ -5,7 +5,7 @@
       fputs($fp, $nuevo);
       echo '<script type="text/javascript">
                         alert("Operacion exitosa! Ha generado una nueva tarifa.");
-                         window.location="http://localhost/agregarTipoDeHospedaje.php"
+                         window.location="http://localhost/informes_modificar_tarifas.php"
                           </script>';
    }
 
