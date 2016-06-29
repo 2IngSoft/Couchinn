@@ -1,12 +1,13 @@
 <?php
-  require("couchInnIndexSesionIniciada.php");
+  require("cabecera_estandar_sesion_iniciada.php");
   $conn = mysqli_connect("localhost","root","","couchinn");
+  $idHospedaje=55; //Variable Global?
   if ($_POST) {
     //session_start();
     if (!($_POST['comentario']=="")) {
       $email=$_SESSION['usuario'];
       $comen=$_POST['comentario'];
-      $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`) VALUES ('$email','$comen')";
+      $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`, `idHospedaje`) VALUES ('$email','$comen','$idHospedaje')";
       $result=mysqli_query($conn,$ins);
       //header("Location: HospedajePropietario.php");
     }
@@ -38,7 +39,7 @@
     <form class="formResp" action="" method="post">
       <div class="cajaComs1">
         <?php
-          $sql = "SELECT * FROM `comentarios`";
+          $sql = "SELECT * FROM `comentarios` WHERE `idHospedaje` = '$idHospedaje'";
           if ($findcomments=mysqli_query($conn, $sql)) {
             while ($row = mysqli_fetch_row($findcomments)) {
               $nom = $row[1];

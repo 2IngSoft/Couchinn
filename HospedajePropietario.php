@@ -1,14 +1,15 @@
 <?php
-  require("couchInnIndexSesionIniciada.php");
+  require("cabecera_estandar_sesion_iniciada.php");
   $conn = mysqli_connect("localhost","root","","couchinn");
   $NumComent="Vacio";
+  $idHospedaje=$_SESSION['idHosp']; //Variable Global
   if ($_POST) {
     //session_start();
     if (!($_POST['comentario']=="")) {
       $email=$_SESSION['usuario'];
       $comen=$_POST['comentario'];
       if (isset($_POST['Coment'])) {
-          $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`) VALUES ('$email','$comen')";
+          $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`, `idHospedaje`) VALUES ('$email','$comen','$idHospedaje')";
       }else {
         foreach($_POST as $kkey => $vvalue) {
           if (substr($kkey,0,3)=="sub") {
@@ -48,7 +49,7 @@
     <form class="formResp" action="" method="post">
       <div class="cajaComs1">
         <?php
-          $sql = "SELECT * FROM `comentarios`";
+          $sql = "SELECT * FROM `comentarios` WHERE `idHospedaje` = '$idHospedaje'";
           if ($findcomments=mysqli_query($conn, $sql)) {
             while ($row = mysqli_fetch_row($findcomments)) {
               $id = $row[0];

@@ -46,14 +46,15 @@ body {
 .alertOK, .alertERROR {
     position: absolute;
     top: 30px;
-    left: 250px;
     color: white;
     text-align: center;
-    width: 200px;
+    padding: 0px 20px 0px 20px;
 }
 .alertOK{
   background-color: lightgreen;
+  left: 150px;
 }
 .alertERROR{
   background-color: #f44336; /* Red */
+  left: 300px;
 }

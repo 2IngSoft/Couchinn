@@ -1,5 +1,5 @@
 <?php
-  require("couchInnIndexSesionIniciada.php");
+  require("cabecera_estandar_sesion_iniciada.php");
   //session_start();
   $conn = mysqli_connect("localhost","root","","couchinn");
   if (!$conn) {
@@ -117,7 +117,7 @@
     <section class="wrapper"> <!-- CONTENEDOR -->
       <section class="main">
         <div class="alertOK" hidden id="alOK">
-          <h2>Exito</h2>
+          <h2>Modificaciones realizadas con exito</h2>
         </div>
         <div class="alertERROR" hidden id="alErr">
           <h2>Error</h2>

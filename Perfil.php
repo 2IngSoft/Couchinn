@@ -1,5 +1,5 @@
 <?php
-  require("couchInnIndexSesionIniciada.php");
+  require("cabecera_estandar_sesion_iniciada.php");
  ?>
 <!DOCTYPE html>
 <html>
