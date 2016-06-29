@@ -23,11 +23,10 @@
               <tr>
                 <td id="contieneCartel">
                   <?php
-
-                  if($_SESSION['premium']==0){
-                    echo '<span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="Premiun.php" id="cartel_premium_sub">¡Hacé click aquí!</a></span>';
-                  }else{
+                  if($_SESSION["premium"]!=0){
                     echo 'Ya sos premium!';
+                  }else{
+                    echo '<span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="Premiun.php" id="cartel_premium_sub">¡Hacé click aquí!</a></span>';
                   }?>
                 <td>
                   <!--<figure id="sectorImagenUsuario"><a href=""><img src="lenny_concentrado.png" height="90px" width="90px" id="imagenPerfil"/></a>
@@ -77,4 +76,5 @@
       </table>
     </header>
   </body>
+  <input type="button" value="Reservar" onclick="realizarReserva.php">
 </html>
