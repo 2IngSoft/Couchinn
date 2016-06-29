@@ -28,9 +28,10 @@ $link = mysqli_connect('localhost','root')
                      alert("Operacion exitosa! Usted ya es un usuario Premiun.");
                       window.location="http://localhost/couchInnIndexSesionIniciada.php"
                        </script>';
+   $_SESSION["premium"]=1;
  }else{
    echo "ERROR EN CONSULTA MODI";
  }
  }
-
+mysqli_close($link);
  ?>
