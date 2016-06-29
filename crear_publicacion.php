@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="EstilosCabeceraSesionIniciada.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="Estilos/EstilosCabeceraSesionIniciada.css" media="screen" title="no title" charset="utf-8">
     <style media="screen">
       .vista_previa {
         margin-top: 5px;
@@ -93,7 +93,6 @@
       }
       function revision_subida() {
         var error = false;
-
         var titulo = document.getElementById("titulo");
         if(titulo.value.length < 10 || /^\s+$/.test(titulo.value)){
           $("#error_titulo").html("*El titulo debe tener 10 caracteres o mas");
@@ -101,7 +100,6 @@
         } else {
           $("#error_titulo").html("");
         }
-
         var imagenes = document.getElementById("imagenes");
         if(imagenes.value == ""){
           $("#error_fotos").html("*Debe ingresar al menos una foto");
@@ -109,7 +107,6 @@
         } else {
           $("#error_fotos").html("");
         }
-
         var provincia = document.getElementById("provincias");
         var ciudad = null;
         if(provincia.value == 0){
@@ -119,7 +116,6 @@
           $("#error_provincias").html("");
           ciudad = document.getElementById("ciudades").value;
         }
-
         var hospedaje = document.getElementById("tipos_hospedaje");
         var capacidad = document.getElementById("capacidad");
         if(hospedaje.value == 0){
@@ -133,7 +129,6 @@
             $("#error_hospedaje_capacidad").html("");
           }
         }
-
         var descripcion = document.getElementById("descripcion");
         if(descripcion.value.length < 20){
           $("#error_descripcion").html("*Debe ingresar una descripcion (20 caracteres minimo)");
@@ -141,7 +136,6 @@
         } else {
           $("#error_descripcion").html("");
         }
-
         if(error == false){
           document.getElementById("formulario").submit();
           window.href.location="ver_publicaciones.php";
@@ -186,17 +180,23 @@
       <table>
         <tr>
           <td>
-            <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="CouchInnLogo.png" width="270px" height="80px"/></a></figure>
+            <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="Imagenes/CouchInnLogo.png" width="270px" height="80px"/></a></figure>
           </td>
           <td>
             <table id="premium_foto_crearPost">
               <tr>
                 <td id="contieneCartel">
-                  <span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="" id="cartel_premium_sub">¡Hacé click aquí!</a></span>
+                  <?php
+
+                  if($_SESSION['premium']==0){
+                    echo '<span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="Premiun.php" id="cartel_premium_sub">¡Hacé click aquí!</a></span>';
+                  }else{
+                    echo 'Ya sos premium!';
+                  }?>
                 </td>
                 <td>
                   <!--<figure id="sectorImagenUsuario"><a href=""><img src="lenny_concentrado.png" height="90px" width="90px" id="imagenPerfil"/></a>
-                  <figcaption>--><a href="Perfil.html"><span id="nombreApellido"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'];?></span></a><!--</figcaption>
+                  <figcaption>--><a href="Perfil.php"><span id="nombreApellido"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'];?></span></a><!--</figcaption>
                 </figure>--><!--CONECTAR CON BD Y TRAER IMAGEN DEL USUARIO-->
                 </td>
               </tr>
