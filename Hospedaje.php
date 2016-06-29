@@ -34,7 +34,7 @@
     </section>
   </body>
   <footer>
-    <h3>Comentarios</h3>
+    <h3>Preguntas</h3>
     <form class="formResp" action="" method="post">
       <div class="cajaComs1">
         <?php
