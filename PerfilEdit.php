@@ -22,82 +22,84 @@
   //Metodo POST
   if($_POST)
   {
-      $errors = array();
-      //validacion
-      if(! empty($_POST['nombre']))
-      {
-        if(strlen($_POST['nombre']) < 4)
+      if (isset($_POST["perfilenviar"])) {
+        $errors = array();
+        //validacion
+        if(! empty($_POST['nombre']))
         {
-            $errors['nombre'] = " *Debe tener al menos 4 caracteres";
+          if(strlen($_POST['nombre']) < 4)
+          {
+              $errors['nombre'] = " *Debe tener al menos 4 caracteres";
+          }
         }
-      }
-      if(! empty($_POST['apellido']))
-      {
-        if(strlen($_POST['apellido']) < 4)
+        if(! empty($_POST['apellido']))
         {
-            $errors['apellido'] = " *Debe tener al menos 4 caracteres";
+          if(strlen($_POST['apellido']) < 4)
+          {
+              $errors['apellido'] = " *Debe tener al menos 4 caracteres";
+          }
         }
-      }
-      if(! empty($_POST['FecNac']))
-      {
-        if(strlen($_POST['FecNac']) < 6)
+        if(! empty($_POST['FecNac']))
         {
-            $errors['FecNac'] = " *Debe tener al menos 6 caracteres";
+          if(strlen($_POST['FecNac']) < 6)
+          {
+              $errors['FecNac'] = " *Debe tener al menos 6 caracteres";
+          }
         }
-      }
-      if(! empty($_POST['telefono']))
-      {
-        if(strlen($_POST['telefono']) < 7)
+        if(! empty($_POST['telefono']))
         {
-            $errors['telefono'] = " *Debe tener al menos 7 caracteres";
+          if(strlen($_POST['telefono']) < 7)
+          {
+              $errors['telefono'] = " *Debe tener al menos 7 caracteres";
+          }
         }
-      }
-      if(! empty($_POST['resp']))
-      {
-        if(strlen($_POST['resp']) < 4)
+        if(! empty($_POST['resp']))
         {
-            $errors['resp'] = " *Debe tener al menos 4 caracteres";
+          if(strlen($_POST['resp']) < 4)
+          {
+              $errors['resp'] = " *Debe tener al menos 4 caracteres";
+          }
         }
-      }
-      if (! empty($_POST['contrasena'])) {
-        if(strlen($_POST['contrasena']) < 6)
+        if (! empty($_POST['contrasena'])) {
+          if(strlen($_POST['contrasena']) < 6)
+          {
+              $errors['contrasena'] = " *Debe tener al menos 6 caracteres";
+          }
+          if (($_POST['contrasena'])==($_POST['contrasena2'])) {
+              if(strlen($_POST['contrasena2']) < 6){
+                  $errors['contrasena2'] = " *Debe tener al menos 6 caracteres";
+              }
+          }else {
+              $errors['contrasena2'] = " *Debe ser igual a la contrasena";
+          }
+        }
+        //checkeo de errores
+        if(count($errors) == 0)
         {
-            $errors['contrasena'] = " *Debe tener al menos 6 caracteres";
-        }
-        if (($_POST['contrasena'])==($_POST['contrasena2'])) {
-            if(strlen($_POST['contrasena2']) < 6){
-                $errors['contrasena2'] = " *Debe tener al menos 6 caracteres";
+            //exito No hay errores
+            //$errors['nombre'] = " *El nombre no puede estar vacio";
+            $nom = $_POST['nombre'];
+            $ap = $_POST['apellido'];
+            $FN = $_POST['FecNac'];
+            $tel = $_POST['telefono'];
+            $rta = $_POST['resp'];
+            $contr = $_POST['contrasena'];
+            $PdS=$_POST['pregunta_de_seguridad'];
+            $idPS="SELECT `idPREGUNTASDESEGURIDAD` FROM `preguntasdeseguridad` WHERE TEXTO='$PdS'";
+            $DATO=mysqli_query($conn,$idPS);
+            $dato2=mysqli_fetch_row($DATO);
+            $PdS=$dato2['0'];
+            $sql = "UPDATE `USUARIOS` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASENA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta',`idPREGUNTASDESEGURIDAD` = '$PdS' WHERE `usuarios`.`EMAIL`= '$email' ";
+            if (mysqli_query($conn, $sql)) {
+              $tf="2";
+              //echo '<script> alert("EXITO"); </script>';
+              //header("Location: Perfil.php");
+            } else {
+              echo "Error updating record: " . mysqli_error($conn);
             }
         }else {
-            $errors['contrasena2'] = " *Debe ser igual a la contrasena";
+          $tf="1";
         }
-      }
-      //checkeo de errores
-      if(count($errors) == 0)
-      {
-          //exito No hay errores
-          //$errors['nombre'] = " *El nombre no puede estar vacio";
-          $nom = $_POST['nombre'];
-          $ap = $_POST['apellido'];
-          $FN = $_POST['FecNac'];
-          $tel = $_POST['telefono'];
-          $rta = $_POST['resp'];
-          $contr = $_POST['contrasena'];
-          $PdS=$_POST['pregunta_de_seguridad'];
-          $idPS="SELECT `idPREGUNTASDESEGURIDAD` FROM `preguntasdeseguridad` WHERE TEXTO='$PdS'";
-          $DATO=mysqli_query($conn,$idPS);
-          $dato2=mysqli_fetch_row($DATO);
-          $PdS=$dato2['0'];
-          $sql = "UPDATE `USUARIOS` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASENA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta',`idPREGUNTASDESEGURIDAD` = '$PdS' WHERE `usuarios`.`EMAIL`= '$email' ";
-          if (mysqli_query($conn, $sql)) {
-            $tf="2";
-            //echo '<script> alert("EXITO"); </script>';
-            //header("Location: Perfil.php");
-          } else {
-            echo "Error updating record: " . mysqli_error($conn);
-          }
-      }else {
-        $tf="1";
       }
   }
 ?>
@@ -154,7 +156,7 @@
                 </label></li>
                 <li><label for="resp"> Respuesta: <input type="password" placeholder="Respuesta" maxlength="10" name="resp" value="<?php if (isset($_POST['resp'])) {echo $_POST['resp'];} else {echo $fila[7];} ?>"> <?php if(isset($errors['resp'])) echo $errors['resp']; ?> </label></li>
               </ul>
-              <input type="submit" class="editar" value="Enviar" />
+              <input type="submit" class="editar" value="Enviar" name="perfilenviar"/>
               <?php
                 if ($tf>"0") {
                   if ($tf=="2") {
