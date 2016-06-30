@@ -14,14 +14,15 @@
     //echo "<h2 class='cartel'>EXITO</h2>";
   }
   $fila=mysqli_fetch_row($DATOS);
-
   $tf="0";
+  $dtprueba=date_create(date("Y-m-d"));
+  date_sub($dtprueba,date_interval_create_from_date_string("18 years"));
+  $fecha=date_format($dtprueba,"Y-m-d");
 
   //Metodo POST
   if($_POST)
   {
       $errors = array();
-
       //validacion
       if(! empty($_POST['nombre']))
       {
@@ -72,25 +73,21 @@
         }
       }
       //checkeo de errores
-
       if(count($errors) == 0)
       {
           //exito No hay errores
           //$errors['nombre'] = " *El nombre no puede estar vacio";
-
           $nom = $_POST['nombre'];
           $ap = $_POST['apellido'];
           $FN = $_POST['FecNac'];
           $tel = $_POST['telefono'];
           $rta = $_POST['resp'];
           $contr = $_POST['contrasena'];
-
           $PdS=$_POST['pregunta_de_seguridad'];
           $idPS="SELECT `idPREGUNTASDESEGURIDAD` FROM `preguntasdeseguridad` WHERE TEXTO='$PdS'";
           $DATO=mysqli_query($conn,$idPS);
           $dato2=mysqli_fetch_row($DATO);
           $PdS=$dato2['0'];
-
           $sql = "UPDATE `USUARIOS` SET `NOMBRE` = '$nom',`APELLIDO` = '$ap',`FECHANAC` = '$FN',`CONTRASENA` = '$contr',`TELEFONO` = '$tel',`RESPUESTASEG` = '$rta',`idPREGUNTASDESEGURIDAD` = '$PdS' WHERE `usuarios`.`EMAIL`= '$email' ";
           if (mysqli_query($conn, $sql)) {
             $tf="2";
@@ -139,7 +136,7 @@
               <ul class="datos">
                 <li><label for="nombre">Nombre: <input type="text" placeholder="Ingrese su nombre" maxlength="10" name="nombre" value="<?php if (isset($_POST['nombre'])) {echo $_POST['nombre'];} else {echo $fila[1];} ?>"> <?php if(isset($errors['nombre'])) echo $errors['nombre']; ?> </label></li>
                 <li><label for="apellido">Apellido: <input type="text" placeholder="Ingrese su apellido" maxlength="10" name="apellido" value="<?php if (isset($_POST['apellido'])) {echo $_POST['apellido'];} else {echo $fila[2];} ?>"> <?php if(isset($errors['apellido'])) echo $errors['apellido']; ?> </label></li>
-                <li><label for="fecNac">Fecha de nacimiento: <input type="date" placeholder="Año-Mes-Dia" maxlength="10" name="FecNac" value="<?php if (isset($_POST['FecNac'])) {echo $_POST['FecNac'];} else {echo $fila[3];} ?>"> <?php if(isset($errors['FecNac'])) echo $errors['FecNac']; ?> </label></li>
+                <li><label for="fecNac">Fecha de nacimiento: <input type="date" placeholder="Año-Mes-Dia" maxlength="10" name="FecNac" value="<?php if (isset($_POST['FecNac'])) {echo $_POST['FecNac'];} else {echo $fila[3];} ?>" min="1900-01-01" max='<?php echo "$fecha"; ?>'> <?php if(isset($errors['FecNac'])) echo $errors['FecNac']; ?> </label></li>
                 <li><label for="telefono">Telefono: <input type="tel" placeholder="Ingrese su telefono" maxlength="10" name="telefono" value="<?php if (isset($_POST['telefono'])) {echo $_POST['telefono'];} else {echo $fila[5];} ?>"> <?php if(isset($errors['telefono'])) echo $errors['telefono']; ?> </label></li>
                 <li><label for="contrasena">Contrasena: <input type="password" placeholder="Ingrese su contrasena" maxlength="10" name="contrasena" value="<?php if (isset($_POST['contrasena'])) {echo $_POST['contrasena'];} else {echo $fila[6];} ?>"> <?php if(isset($errors['contrasena'])) echo $errors['contrasena']; ?> </label></li>
                 <li><label for="contrasena2">Confirmar: <input type="password" placeholder="Confirmar contrasena" maxlength="10" name="contrasena2" value="<?php if (isset($_POST['contrasena2'])) {echo $_POST['contrasena2'];} else {echo $fila[6];} ?>"> <?php if(isset($errors['contrasena2'])) echo $errors['contrasena2']; ?> </label></li>

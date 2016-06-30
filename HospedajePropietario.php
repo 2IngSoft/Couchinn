@@ -8,7 +8,7 @@
     if (!($_POST['comentario']=="")) {
       $email=$_SESSION['usuario'];
       $comen=$_POST['comentario'];
-      if (isset($_POST['Coment'])) {
+      if (isset($_POST['Coment'])) { // (IF) SIN FUNCION SI BOTON PUBLICAR NO ESTA
           $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`, `idHospedaje`) VALUES ('$email','$comen','$idHospedaje')";
       }else {
         foreach($_POST as $kkey => $vvalue) {
@@ -28,7 +28,6 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="HospedajePropietarioEstilo.css">
-    <link rel="shortcut icon" type="image/x-icon" href="Imgs/icono.ico">
     <title>Hospedaje</title>
   </head>
   <body>
@@ -71,7 +70,7 @@
          ?>
       </div>
       <textarea name="comentario" rows="3" cols="50" maxlength="200" class="cajaComs2"></textarea>
-      <input type="submit" name="Coment" value="Publicar" class="Bcomnt">
+      <!--<input type="submit" name="Coment" value="Publicar" class="Bcomnt">-->
     </form>
   </footer>
 </html>

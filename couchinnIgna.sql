@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-06-2016 a las 23:36:13
+-- Tiempo de generación: 30-06-2016 a las 16:23:58
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -55,6 +55,7 @@ CREATE TABLE `comentarios` (
   `Nombre` text NOT NULL,
   `Comentario` text NOT NULL,
   `Respuesta` text NOT NULL,
+  `Visto` tinyint(1) NOT NULL DEFAULT '0',
   `Fecha y hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `idHospedaje` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -63,25 +64,32 @@ CREATE TABLE `comentarios` (
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`ID`, `Nombre`, `Comentario`, `Respuesta`, `Fecha y hora`, `idHospedaje`) VALUES
-(4, 'asd@asd', 'a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '2016-06-29 13:53:53', 52),
-(5, 'asd@asd', 'Este es un texto de prueba', '', '2016-06-29 13:53:53', 52),
-(6, 'asd@asd', 'comentario', '', '2016-06-29 13:53:53', 52),
-(7, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', '2016-06-29 13:53:53', 52),
-(8, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un tex', '', '2016-06-29 13:53:53', 52),
-(9, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un tex', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un', '2016-06-29 13:53:53', 52),
-(10, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebavEsto es un texto de prueba Esto es un te', 'Respuesta a 10', '2016-06-29 13:53:53', 53),
-(11, 'asd@asd', 'Algo', 'asd', '2016-06-29 13:53:53', 53),
-(12, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '2016-06-29 13:53:53', 54),
-(13, 'a@a', 'A todos', 'Respuesta a 13', '2016-06-29 13:53:53', 54),
-(14, 'a@a', 'A todos', 'Respuesta a 14', '2016-06-29 13:53:53', 54),
-(15, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', '2016-06-29 13:53:53', 55),
-(16, 'a@a', 'Test', 'Respuesta a Test', '2016-06-29 13:53:53', 55),
-(17, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', '2016-06-29 13:53:53', 55),
-(18, 'a@a', 'Comentario', '', '2016-06-29 13:53:53', 55),
-(19, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 'Respuesta', '2016-06-29 13:53:53', 55),
-(20, 'carl.carlson@gmail.com', 'Pregunta de prueba?', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '2016-06-29 15:18:40', 55),
-(21, 'carl.carlson@gmail.com', 'Esta es otra pregunta de prueba?', '', '2016-06-29 15:21:14', 55);
+INSERT INTO `comentarios` (`ID`, `Nombre`, `Comentario`, `Respuesta`, `Visto`, `Fecha y hora`, `idHospedaje`) VALUES
+(4, 'asd@asd', 'a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 0, '2016-06-29 13:53:53', 52),
+(5, 'asd@asd', 'Este es un texto de prueba', '', 0, '2016-06-29 13:53:53', 52),
+(6, 'asd@asd', 'comentario', '', 0, '2016-06-29 13:53:53', 52),
+(7, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', 0, '2016-06-29 13:53:53', 52),
+(8, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un tex', '', 0, '2016-06-29 13:53:53', 52),
+(9, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un tex', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un', 0, '2016-06-29 13:53:53', 52),
+(10, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebavEsto es un texto de prueba Esto es un te', 'Respuesta a 10', 0, '2016-06-29 13:53:53', 53),
+(11, 'asd@asd', 'Algo', 'asd', 0, '2016-06-29 13:53:53', 53),
+(12, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 0, '2016-06-29 13:53:53', 54),
+(13, 'a@a', 'A todos', 'Respuesta a 13', 0, '2016-06-29 13:53:53', 54),
+(14, 'a@a', 'A todos', 'Respuesta a 14', 0, '2016-06-29 13:53:53', 54),
+(15, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', 0, '2016-06-29 13:53:53', 55),
+(16, 'a@a', 'Test', 'Respuesta a Test', 0, '2016-06-29 13:53:53', 55),
+(17, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', 0, '2016-06-29 13:53:53', 55),
+(18, 'a@a', 'Comentario', '', 0, '2016-06-29 13:53:53', 55),
+(19, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 'Respuesta', 0, '2016-06-29 13:53:53', 55),
+(20, 'carl.carlson@gmail.com', 'Pregunta de prueba?', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 0, '2016-06-29 15:18:40', 55),
+(21, 'carl.carlson@gmail.com', 'Esta es otra pregunta de prueba?', '', 0, '2016-06-29 15:21:14', 55),
+(22, 'lenny.leonard@gmail.com', 'Lenny leonard', 'Respuesta', 1, '2016-06-29 23:32:54', 52),
+(23, 'lenny.leonard@gmail.com', 'Lenny leonard', 'Respuesta', 0, '2016-06-29 23:32:54', 54),
+(24, 'lenny.leonard@gmail.com', 'Pregunta', '', 0, '2016-06-29 23:46:02', 55),
+(25, 'lenny.leonard@gmail.com', 'pregunta?', 'asd', 0, '2016-06-29 23:46:26', 55),
+(26, 'lenny.leonard@gmail.com', 'Texto', 'Algo', 0, '2016-06-29 23:47:35', 55),
+(27, 'lenny.leonard@gmail.com', 'asd', 'qwe', 0, '2016-06-29 23:50:27', 56),
+(28, 'lenny.leonard@gmail.com', 'zxc', '', 0, '2016-06-30 13:22:20', 56);
 
 -- --------------------------------------------------------
 
@@ -117,7 +125,8 @@ INSERT INTO `imagenes` (`idIMAGENES`, `IMAGEN`, `idPUBLICACIONES`) VALUES
 (134, 'imagenes_usuarios/phpEE71_img-1.png', 55),
 (135, 'imagenes_usuarios/phpEE82_img-2.png', 55),
 (136, 'imagenes_usuarios/_img-3.png', 55),
-(137, 'imagenes_usuarios/phpEEB2_lenny_concentrado.png', 55);
+(137, 'imagenes_usuarios/phpEEB2_lenny_concentrado.png', 55),
+(138, 'imagenes_usuarios/php35C3_Fondo_Main_3.jpg', 56);
 
 -- --------------------------------------------------------
 
@@ -206,7 +215,8 @@ INSERT INTO `publicaciones` (`idPUBLICACIONES`, `FECHA_ALTA`, `TITULO`, `CAPACID
 (52, '2016-06-29 20:28:11', 'Curiosa cabaña en el lago', 2, 'Esta curiosa cabaña en el lago de carlos paz es una particular forma de pasar un finde semana si te gusta la pesca', 60, 3, 3, 1),
 (53, '2016-06-29 19:47:44', 'Raro departamento en las ruinas', 4, 'Te vas a sentir como en la antigua grecia en este raro departamento', 60, 1, 2, 1),
 (54, '2016-06-22 14:12:06', 'Casa en la playa :D', 6, 'Esta es una elegante casa de playa a lo "Tony Stark"', 60, 5, 1, 1),
-(55, '2016-06-22 14:33:54', 'Lenny es un grande', 4, 'afsdkajsdfñkjsñdaj ñskadjf ñskjdfñsk jñ', 60, 1, 1, 1);
+(55, '2016-06-22 14:33:54', 'Lenny es un grande', 4, 'afsdkajsdfñkjsñdaj ñskadjf ñskjdfñsk jñ', 60, 1, 1, 1),
+(56, '2016-06-29 21:55:05', 'Cabaña de a@a', 5, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 2, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -254,7 +264,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`idUSUARIOS`, `NOMBRE`, `APELLIDO`, `FECHANAC`, `EMAIL`, `TELEFONO`, `CONTRASENA`, `RESPUESTASEG`, `FECHADEALTA`, `idPREGUNTASDESEGURIDAD`) VALUES
 (1, 'Angélica', 'Portacelutti', '1986-06-02', 'angelica.portacelutti@gmail.com', '', 'Angelica', 'Fido', '2016-06-02 19:52:58', 1),
 (2, 'Igna', 'apellido', '2016-06-08', 'a@a', '5555555', 'asdasd', 'respuesta', '2016-06-04 07:49:23', 1),
-(60, 'Lenny', 'Leonard', '1989-01-01', 'lenny.leonard@gmail.com', '', 'asdasd', 'Carl Carlson', '2016-06-02 20:05:06', 3),
+(60, 'Lenny', 'Leonard', '1997-12-02', 'lenny.leonard@gmail.com', '1111111', 'asdasd', 'resp', '2016-06-02 20:05:06', 1),
 (64, 'Ralph', 'Gorgory', '2016-06-15', 'ralph.gorgory@gmail.com', '', 'ralph', 'uiii', '2016-06-03 05:35:27', 4),
 (66, 'Carl', 'Carlson', '1989-04-23', 'carl.carlson@gmail.com', '454645', 'asdasd', 'Lenny Leonard', '2016-06-04 08:19:21', 1),
 (67, 'Juan', 'Perez', '1998-01-01', 'juan.perez@gmail.com', '4567894', 'chauchau', 'Tito', '2016-06-04 13:47:17', 3),
@@ -327,12 +337,12 @@ ALTER TABLE `ciudades`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `idIMAGENES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `idIMAGENES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 --
 -- AUTO_INCREMENT de la tabla `preguntasdeseguridad`
 --
@@ -347,7 +357,7 @@ ALTER TABLE `provincias`
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `idPUBLICACIONES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `idPUBLICACIONES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT de la tabla `tipos_de_hospedajes`
 --

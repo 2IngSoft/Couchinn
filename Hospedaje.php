@@ -1,11 +1,13 @@
 <?php
   require("cabecera_estandar_sesion_iniciada.php");
+  //session_start();
   $conn = mysqli_connect("localhost","root","","couchinn");
-  $idHospedaje=55; //Variable Global?
+  $email=$_SESSION['usuario'];
+  $idHospedaje=$_SESSION['idHosp']; //Variable Global
+  $sql="UPDATE `comentarios` SET `Visto`='1' WHERE `Nombre`='$email' AND `Respuesta`!='' AND `idHospedaje`='$idHospedaje'";
+  mysqli_query($conn, $sql);
   if ($_POST) {
-    //session_start();
     if (!($_POST['comentario']=="")) {
-      $email=$_SESSION['usuario'];
       $comen=$_POST['comentario'];
       $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`, `idHospedaje`) VALUES ('$email','$comen','$idHospedaje')";
       $result=mysqli_query($conn,$ins);
@@ -18,7 +20,6 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="HospedajeEstilo.css">
-    <link rel="shortcut icon" type="image/x-icon" href="Imgs/icono.ico">
     <title>Hospedaje</title>
   </head>
   <body>
