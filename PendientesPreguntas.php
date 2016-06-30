@@ -3,16 +3,20 @@
   $conn = mysqli_connect("localhost","root","","couchinn");
   $email=$_SESSION['usuario'];
   if ($_POST) {
+    $tf=false;
     foreach($_POST as $kkey => $vvalue) {
       if (substr($kkey,0,3)=="sub") {
         $idH=substr($kkey,4);
+        $tf=true;
       }
     }
-    $_SESSION['idHosp']=$idH;
-    if (substr($kkey,3,1)=="P") {
-      header("Location: HospedajePropietario.php");
-    }else {
-      header("Location: Hospedaje.php");
+    if ($tf) {
+      $_SESSION['idHosp']=$idH;
+      if (substr($kkey,3,1)=="P") {
+        header("Location: HospedajePropietario.php");
+      }else {
+        header("Location: Hospedaje.php");
+      }
     }
   }
  ?>
