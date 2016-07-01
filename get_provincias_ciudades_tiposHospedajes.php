@@ -27,8 +27,16 @@ if(isset($_POST['accion'])){
       mysql_select_db('couchinn') or die('No se pudo seleccionar la base de datos');
       $valor=$_POST["valorCiudad"];
       $query="SELECT * FROM CIUDADES WHERE idPROVINCIAS=$valor";
+      /*if($valor!=0){
+        $query="SELECT * FROM CIUDADES WHERE idPROVINCIAS=$valor";
+      } else {
+        $query="SELECT * FROM CIUDADES";
+      }*/
       $result = mysql_query($query) or die("Ocurrio un error en la consulta SQL");
       mysql_close();
+      if(isset($_POST["valorCero"]) && $_POST["valorCero"]==1){
+        echo '<option value="0">Ciudad</option>';
+      }
       while (($fila = mysql_fetch_array($result)) != NULL) {
           echo '<option value="'.$fila["idCIUDADES"].'">'.$fila["NOMBRE"].'</option>';
       }

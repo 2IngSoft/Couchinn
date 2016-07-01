@@ -62,30 +62,17 @@
         if(tupla!=0){
           var frase=$("#cuadro_busqueda").val();
           $("#contenedor_publicaciones").hide();
-          var inicio=new Date().getMilliseconds();
-          var datos = { "tabla":tabla, "tupla":tupla, "busqueda":frase, "inicio":inicio };
-          var t = document.getElementById("tipos_hospedaje").value;
-          var p = document.getElementById("provincias").value;
-          var c = document.getElementById("ciudades").value;
-          if(t!=0){ //si se seleccionó un tipo de hospedaje
-            if(p!=0 && c==0 || tabla=="PROVINCIAS"){   //si se seleccionó una provincia pero no una ciudad
-              datos = { "tabla":"TIPOS_DE_HOSPEDAJES", "tupla":t, "busqueda":frase, "inicio":inicio, "tabla2":"PROVINCIAS", "tupla2":p };
-            } else {
-              if(c!=0){   //si se seleccionó una ciudad
-                datos = { "tabla":"TIPOS_DE_HOSPEDAJES", "tupla":t, "busqueda":frase, "inicio":inicio, "tabla2":"CIUDADES", "tupla2":c };
-              }
-            }
-          }
-          $.ajax({
+          /*$.ajax({
             type: "POST",
-            data: datos,
-            url: "publicaciones_index.php",
+            data: { "tabla":tabla, "tupla":tupla, "busqueda":frase },
+            url: "cuenta_resultados.php",
             success: function(response){
-              $('#contenedor_publicaciones').html(response).fadeIn();
+              $('#estadisticas_busqueda').html(response).fadeIn();
             }
-          }).done(function() {
-            estadistica_busqueda($("#inicio").val(),$("#escondido").val());
-          });
+          });*/
+          $.ajax("publicacion_index2",{"tabla":tabla,"tupla",tupla,"busqueda",frase, success(function(){$("#contenedor_general")})});
+          //$("#contenedor_publicaciones").load("publicaciones_index.php", { "tabla":tabla, "tupla":tupla, "busqueda":frase }).show(250);
+          //$("#estadisticas_busqueda").hide();
         }
       }
       function cargar(id){
@@ -103,53 +90,45 @@
         $("#filtros_busqueda_borde").show(500);
       }
       function buscar(){
-        var frase=$("#cuadro_busqueda").val();
+        var frase = $("#cuadro_busqueda").val();
         if(frase!=""){
-          var inicio = new Date().getMilliseconds();
           var provs=$("#provincias").val();
           var ciuds=$("#ciudades").val();
-          var hosps=$("#tipos_hospedaje").val();
-          if(provs!=0 || ciuds!=0 || hosps!=0){
+          if(provs!=0 || ciuds!=0){
             resetearSelects();
           }
           cargar_publicaciones("BUSQUEDA",frase);
-          var final = new Date().getMilliseconds();
-          estadistica_busqueda(inicio,final);
         } else {
-          cargar_publicaciones("todas","todas");  //está para recargar la pagina desde cero sin tener que apretar el logo de CouchInn
+          cargar_publicaciones("todas","todas");
         }
       }
-      function estadistica_busqueda(inicio,cantResultados){
-        var final = new Date().getMilliseconds();
-        var tiempo = (final - inicio)/1000;
-        $("#estadisticas_busqueda").html("Se encontraron: "+cantResultados+" resultados en: "+tiempo+" segundos.");
-        $('#estadisticas_busqueda').show(100);
-        setTimeout ("$('#estadisticas_busqueda').hide(100)", 5000);
+      function estadistica_busqueda(inicio,final) {
+        /*var tiempo = (Math.abs(final) - Math.abs(inicio))/1000;
+        var cantResultados = $(".publicacion").length;
+        $("#estadisticas_busqueda").html(cantResultados+" resultados en "+tiempo+" segundos");
+        $("#estadisticas_busqueda").show(100);
+        setTimeout ("$('#estadisticas_busqueda').hide(100)", 5000);*/
       }
       function resetearSelects(){
         if($("#cuadro_busqueda").val()!="" || $("#provincias").val()!=0 || $("#ciudades").val()!=0 || $("#tipos_hospedaje").val()!=0){
-          $('#tipos_hospedaje option[value=0]').prop('selected', true);
           $('#provincias option[value=0]').prop('selected', true);
-          if($("#ciudades").val()!=0 && $("#provincias").val()!=0){
-            var valorC="1 OR 'z'='z'";
-            $.ajax({
-              type: "POST",
-              data: { "accion":2, "valorCiudad":valorC, "valorCero":1 },
-              url: "get_provincias_ciudades_tiposHospedajes.php",
-              success: function(response){
-                $('#ciudades').html(response).fadeIn();
-              }
-            });
-          } else {
-            $("#ciudades option[value=0]").prop('selected', true);
-          }
+          var valorC="1 OR 'z'='z'";
+          $.ajax({
+            type: "POST",
+            data: { "accion":2, "valorCiudad":valorC, "valorCero":1 },
+            url: "get_provincias_ciudades_tiposHospedajes.php",
+            success: function(response){
+              $('#ciudades').html(response).fadeIn();
+            }
+          });
+          $('#tipos_hospedajes option[value=0]').prop('selected', true);
         }
       }
       function seleccion_provincia(provincia){
         if(provincia!=0){
           $.ajax({
             type: "POST",
-            data: { "accion":2, "valorCiudad":provincia, "valorCero":1 },
+            data: { "accion":2, "valorCiudad":provincia, "valorCero":0 },
             url: "get_provincias_ciudades_tiposHospedajes.php",
             success: function(response){
               $('#ciudades').html(response).fadeIn();
@@ -167,9 +146,9 @@
           });
         }
       }
-      function quitar_filtros(){
-        resetearSelects();
+      function quitar_filtros() {
         buscar();
+        resetearSelects();
       }
     </script>
   </head>
@@ -203,7 +182,7 @@
       </form>
       <?php if(isset($_SESSION["error"])){ echo '<script> alert("'.$_SESSION["error"].'");</script>';unset($_SESSION["error"]);} ?>
     </header>
-    <div id="estadisticas_busqueda" class="estadisticas_busqueda"></div>
+    <div id="estadisticas_busqueda" class="estadisticas_busqueda">nope</div>
     <div id="alineador" class="alineador">
       <div id="contenedor_publicaciones"></div>
       <div id="contenedor_detalle"></div>
@@ -211,8 +190,8 @@
     <div id="filtros_busqueda_borde" class="filtros_busqueda_borde">
       <div id="marco_busqueda" class="marco_busqueda">
         <div id="buscador" class="buscador">
-          <input type="type" name="buscar" id="cuadro_busqueda" placeholder="Buscar..." onchange="buscar()">
-          <input type="button" name="realizar_busqueda" id="realizar_busqueda" value="Buscar" onclick="buscar()">
+          <input type="type" name="buscar" id="cuadro_busqueda" placeholder="Buscar..." onchange="buscar();">
+          <input type="button" name="realizar_busqueda" id="realizar_busqueda" value="Buscar" onclick="var inicio=new Date().getMilliseconds();buscar();var final=new Date().getMilliseconds();estadistica_busqueda(inicio,final);">
         </div>
       </div>
       <div id="filtros_borde_superior" class="filtros_borde_superior">
@@ -230,7 +209,7 @@
             <!--<input type="button" id="filtrar_hospedaje" name="filtrar_hosp" value="Filtrar">-->
           </div>
           <div id="reset" class="reset">
-            <input type="button" name="name" value="Quitar filtros" onclick="quitar_filtros()">
+            <input type="button" name="name" value="Quitar filtros" onclick="quitar_filtros();">
           </div>
         </div>
       </div>

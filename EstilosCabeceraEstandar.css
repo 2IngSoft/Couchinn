@@ -4,13 +4,14 @@ header{
 /*  ---> RESET DEL HEADER <---  */
 
 body{
-  background-image: url(Fondo_Main_3.jpg);
+  background-image: url("Fondo_Main_3.jpg");
 }
 
 #encabezadoPrincipal{
   background-color: green;
   padding: 0.01%;
   height: 125px;
+  margin-bottom: 0px;
 }
 
 #logoCouchInn{

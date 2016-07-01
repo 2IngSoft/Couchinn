@@ -11,7 +11,7 @@ $link = mysqli_connect('localhost','root')
  $tabla=mysqli_query($link,$consul);
  $id=mysqli_fetch_row($tabla);
  $id1=$id[0];
- $fp = fopen("\Users\Ivana\Desktop\precio.txt", "r");
+ $fp = fopen("precio.txt", "r");
  if($fp==false){
    echo "error";
  }
@@ -25,13 +25,12 @@ $link = mysqli_connect('localhost','root')
    $resultado=mysqli_query($link,$consul);
    if($resultado==true){
    echo '<script type="text/javascript">
-                     alert("Operacion exitosa! Usted ya es un usuario Premiun.");
-                      window.location="http://localhost/couchInnIndexSesionIniciada.php"
+                     alert("Operacion exitosa! Usted ya es un usuario Premium.");
+                      window.location="couchInnIndexSesionIniciada.php"
                        </script>';
-   $_SESSION["premium"]=1;
  }else{
    echo "ERROR EN CONSULTA MODI";
  }
  }
-mysqli_close($link);
+
  ?>

@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 
-<script language="javascript" type="text/javascript">
-function justNumbers(e)
-{
-   var keynum = window.event ? window.event.keyCode : e.which;
-   if ((keynum == 8) || (keynum == 46))
-        return true;
-    return /\d/.test(String.fromCharCode(keynum));
-}
-
-function validarForm(){
-     var num=document.getElementById("numTarjeta");
-     if(num.value.length!=16)
-     {
-        alert("El numero de tarjeta es invalido");
-        num.focus();
-        return false;
- }
-    return true;
- }
-
- window.onload = function() {
-
- 	document.getElementById('pp').onsubmit = validarForm;
-
- }
-</script>
 <html>
   <head>
 <meta utf-8>
-    <link rel="stylesheet" type="text/css" href="Estilos/EstiloPremin.css">
+    <link rel="stylesheet" type="text/css" href="EstiloPremin.css">
     <title>CouchInn</title>
+    <script language="javascript" type="text/javascript">
+    function justNumbers(e)
+    {
+      var keynum = window.event ? window.event.keyCode : e.which;
+      if ((keynum == 8) || (keynum == 46))
+      return true;
+      return /\d/.test(String.fromCharCode(keynum));
+    }
+    function validarForm(){
+      var num=document.getElementById("numTarjeta");
+      if(num.value.length!=16)
+      {
+        alert("El numero de tarjeta es invalido");
+        num.focus();
+        return false;
+      }
+      return true;
+    }
+    window.onload = function() {
+      document.getElementById('pp').onsubmit = validarForm;
+    }
+    </script>
 </head>
 
   <body>
@@ -38,7 +34,7 @@ function validarForm(){
     <table>
       <tr>
         <td>
-          <figure class="logoCouchInn"><img src="Imagenes/CouchInnLogo.png" width="300px" height="100px"/></figure>
+          <figure class="logoCouchInn"><img src="CouchInnLogo.png" width="300px" height="100px"/></figure>
         </td>
       </tr>
       <tr>
@@ -130,7 +126,6 @@ function validarForm(){
                       <option value="2029">2029</option>
                       <option value="2030">2030</option>
                       <option value="2031">2031</option>
-
                   </select>
                   <br>
                   <br> Ingrese su codigo de seguridad:

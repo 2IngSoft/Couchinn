@@ -15,9 +15,22 @@
     if(mysqli_num_rows($resultado)>0){
       while($fila=mysqli_fetch_row($resultado)){
         //echo "<a href='detalle_publicacion.php'>";
-        echo "<div id='",$fila[0],"' class='publicacion' onclick='cargar(this.id); var id = this.id;'>";
+        echo "<div id='",$fila[0],"'";
+        if($publicaciones_activas==1){
+           echo "class='publicacion'";
+        } else {
+          echo "class='publicacion_despublicada'";
+        }
+        echo " onclick='cargar(this.id); var id = this.id;'>";
         echo "<div class='img_portada'>";
-        echo "<img src='CouchInnLogo.png' height='50px' width='150px'/>";
+        $sql_imagenes="SELECT IMAGEN FROM IMAGENES WHERE idPUBLICACIONES='$fila[0]'";
+        $resultado_imagenes=mysqli_query($conexion,$sql_imagenes);
+        $imagen=mysqli_fetch_row($resultado_imagenes);
+        echo "<img src='";
+        //echo $imagen;
+        echo $imagen[0];
+        echo "' height='50px' width='105px' class='marco_imagen'/>";
+        //echo "<img src='CouchInnLogo.png' height='50px' width='150px'/>";
         echo "</div>";
         echo "<div class='titulo'>";
         echo $fila[1];

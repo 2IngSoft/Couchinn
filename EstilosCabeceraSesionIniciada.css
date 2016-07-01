@@ -5,8 +5,11 @@ header{
 /*  ---> RESET DEL HEADER <---  */
 
 body{
-  background-image: url(Fondo_Main_3.jpg);
+  background-image: url("Fondo_Main_3.jpg");
   font-family: Arial;
+}
+#encabezado{
+  width: 100%;
 }
 
 #encabezadoPrincipal{
@@ -22,7 +25,6 @@ body{
   background-color: white;
   width: 220px;
 }
-
 /*#premium_foto_crearPost{
   margin-left: 20px;
   margin-top: 2.6%;
@@ -74,6 +76,7 @@ body{
   border-color: grey;
   border-style: dashed;
   padding: 8px;
+  margin-left: 30px;
 }
 
 #submit_opcion_usuario{

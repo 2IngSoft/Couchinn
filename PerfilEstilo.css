@@ -2,7 +2,7 @@ body {
   background-image: url(Fondo_Main_3.jpg);
   background-size: cover;
 }
-.main, aside{
+.main, aside, footer{
   background-color: rgba(255, 255, 255, 0.75);
   position: absolute;
   padding: 5px 5px;
@@ -42,4 +42,11 @@ body {
   position: absolute;
   left: 250px;
   top: 200px;
+}
+footer{
+  text-align: center;
+  top: 30px;
+  height: 30px;
+  margin: -5px;
+  padding: 0px 0px;
 }

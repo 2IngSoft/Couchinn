@@ -1,7 +1,6 @@
 body {
   background-image: url(Fondo_Main_3.jpg);
   background-size: cover;
-  background-attachment: fixed;
 }
 .main, aside{
   background-color: rgba(255, 255, 255, 0.75);
@@ -12,8 +11,8 @@ body {
 }
 .main{
   left: 50px;
-  width: 800px;
-  height: 500px;
+  width: 50%;
+  height: 490px;
 }
 .main article h2{
   position: relative;
@@ -24,33 +23,35 @@ aside{
   width: 500px;
   height: 500px;
 }
-footer{
-  background-color: rgba(255, 255, 255, 0.75);
-  position: absolute;
-  top: 700px;
+aside p{
+  position: relative;
+  display: inline-block;
   left: 50px;
-  height: auto;
-  width: 1350px;
-  padding: 10px;
+  margin: 0px;
+  padding: 0px;
+}
+aside form{
+  position: relative;
+  display: inline-block;
+  width: 450px;
+  height: 110px;
   margin: 5px;
+  padding: 5px;
+}
+.cajaComs1, .cajaComs2{
+  position: relative;
+  display: inline-block;
+  resize: none;
+  width: 450px;
 }
 .cajaComs1{
-  margin: 15px 15px 0px 15px;
-  padding: 0px 30px 0px 10px;
-}
-.Rresponder, .Rrespuesta{
-  position: relative;
-  left: 40px;
-}
-.Rnom{
-  font-weight: bold;
+  height: 300px;
+  left: 20px;
 }
 .cajaComs2{
-  resize: none;
-  width: 1260px;
-  margin: 15px;
+  left: 10px;
 }
 .Bcomnt{
   position: relative;
-  left: 630px;
+  left: 200px;
 }

@@ -1,8 +1,8 @@
 <?php
-  session_start();
+  /*session_start();
+  $email=$_SESSION["usuario"];*/
   require("establece_conexion.php");
   establecer_conexion($conexion);
-  $email=$_SESSION["usuario"];
   $publicacion=$_POST["publicacion"];
   //PARA TRAER AL USUARIO DUEÑO DE LA PUBLICACION
   /*$sql="SELECT * FROM USUARIOS WHERE EMAIL='$email'";

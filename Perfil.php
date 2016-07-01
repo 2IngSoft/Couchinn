@@ -1,11 +1,12 @@
 <?php
-  require("cabecera_estandar_sesion_iniciada.php");
+  require("couchInnIndexSesionIniciada.php");
  ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="PerfilEstilo.css">
+    <link rel="shortcut icon" type="image/x-icon" href="Imgs/icono.ico">
     <title>Perfil</title>
   </head>
   <body>
@@ -36,14 +37,10 @@
                 $fila=mysqli_fetch_row($DATOS);
                 echo ($fila['1']),"<br>";
                 echo ($fila['2']),"<br>";
-                echo ($fila['4']),"<br>";
-                echo ($fila['3']),"<br>";
                 echo ($fila['5']),"<br>";
-                $equis=$fila['9'];
-                $consulta="SELECT TEXTO FROM preguntasdeseguridad WHERE idPREGUNTASDESEGURIDAD='$equis'";
-                $DATO=mysqli_query($conexion,$consulta);
-                $dato2=mysqli_fetch_row($DATO);
-                echo ($dato2['0']);
+                echo ($fila['4']),"<br>";
+                echo ($fila['6']),"<br>";
+                echo ($fila['7']),"<br>";
                ?>
             </ul>
             <a href="PerfilEdit.php">

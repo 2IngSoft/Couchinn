@@ -8,8 +8,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="Estilos/EstilosCabeceraSesionIniciada.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="Estilos/Estilos_ver_publicaciones.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="EstilosCabeceraSesionIniciada.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="Estilos_ver_publicaciones.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="Estilos_Contenedor_Fixed.css" media="screen" title="no title" charset="utf-8">
     <title>CouchInn</title>
     <script src="jquery-3.0.0.min.js"></script>
     <script>
@@ -96,23 +97,17 @@
       <table>
         <tr>
           <td>
-            <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="Imagenes/CouchInnLogo.png" width="270px" height="80px"/></a></figure>
+            <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="CouchInnLogo.png" width="270px" height="80px"/></a></figure>
           </td>
           <td>
             <table id="premium_foto_crearPost">
               <tr>
                 <td id="contieneCartel">
-                  <?php
-
-                  if($_SESSION['premium']==0){
-                    echo '<span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="Premiun.php" id="cartel_premium_sub">¡Hacé click aquí!</a></span>';
-                  }else{
-                    echo 'Ya sos premium!';
-                  }?>
+                  <span id="cartel_premium">¿Todavía no sos PREMIUM?<br><a href="" id="cartel_premium_sub">¡Hacé click aquí!</a></span>
                 </td>
                 <td>
                   <!--<figure id="sectorImagenUsuario"><a href=""><img src="lenny_concentrado.png" height="90px" width="90px" id="imagenPerfil"/></a>
-                  <figcaption>--><a href="Perfil.php"><span id="nombreApellido"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'];?></span></a><!--</figcaption>
+                  <figcaption>--><a href="Perfil.html"><span id="nombreApellido"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'];?></span></a><!--</figcaption>
                 </figure>--><!--CONECTAR CON BD Y TRAER IMAGEN DEL USUARIO-->
                 </td>
               </tr>
@@ -174,6 +169,7 @@
         }
       </script>
     </div>
+    <div id="contenedor_carga"></div>
     <div id="contenedor_fixed" class="contenedor_fixed">
       <div class="contiene_opciones_borde">
         <div class="contiene_opciones">
@@ -185,11 +181,10 @@
           </div>
           <!--<div id="des_pub" class="opcion_despublicar" onclick="accion(this.id,hacer); hacer = !hacer;"></div>
           <div class="opcion_eliminar">
-            Eliminar
-          </div>-->
-        </div>
+          Eliminar
+        </div>-->
       </div>
     </div>
-    <div id="contenedor_carga"></div>
+  </div>
   </body>
 </html>

@@ -1,17 +1,15 @@
 <?php
-  require("cabecera_estandar_sesion_iniciada.php");
-  //session_start();
+  require("couchInnIndexSesionIniciada.php");
   $conn = mysqli_connect("localhost","root","","couchinn");
-  $email=$_SESSION['usuario'];
-  $idHospedaje=$_SESSION['idHosp']; //Variable Global
-  $sql="UPDATE `comentarios` SET `Visto`='1' WHERE `Nombre`='$email' AND `Respuesta`!='' AND `idHospedaje`='$idHospedaje'";
-  mysqli_query($conn, $sql);
   if ($_POST) {
-    if (!($_POST['comentario']=="")) {
-      $comen=$_POST['comentario'];
-      $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`, `idHospedaje`) VALUES ('$email','$comen','$idHospedaje')";
-      $result=mysqli_query($conn,$ins);
-      //header("Location: HospedajePropietario.php");
+    //session_start();
+    $email=$_SESSION['usuario'];
+    $comen=$_POST['comentario'];
+    $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`) VALUES ('$email','$comen')";
+    if ($result=mysqli_query($conn,$ins)) {
+      header("Location: Hospedaje.php");
+    } else {
+      echo "Error updating record: " . mysqli_error($conn);
     }
   }
  ?>
@@ -20,6 +18,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="HospedajeEstilo.css">
+    <link rel="shortcut icon" type="image/x-icon" href="Imgs/icono.ico">
     <title>Hospedaje</title>
   </head>
   <body>
@@ -31,35 +30,25 @@
         </article>
       </section>
       <aside>
-        <h3>Reservar</h3>
+        <h3>Comentarios</h3>
+        <textarea name="name" rows="8" cols="40" disabled="true" class="cajaComs1"><?php
+            $sql = "SELECT * FROM `comentarios`";
+            if ($findcomments=mysqli_query($conn, $sql)) {
+              while ($row = mysqli_fetch_row($findcomments)) {
+                $nom = $row[1];
+                $com = $row[2];
+                echo "* $nom - $com";
+                echo "\n";
+              }
+            } else {
+              echo "Error updating record: " . mysqli_error($conn);
+            }
+           ?></textarea>
+        <form class="" action="" method="post">
+          <textarea name="comentario" rows="3" cols="50" maxlength="200" class="cajaComs2"></textarea>
+          <input type="submit" name="submit" value="Comentar" class="Bcomnt">
+        </form>
       </aside>
     </section>
   </body>
-  <footer>
-    <h3>Preguntas</h3>
-    <form class="formResp" action="" method="post">
-      <div class="cajaComs1">
-        <?php
-          $sql = "SELECT * FROM `comentarios` WHERE `idHospedaje` = '$idHospedaje'";
-          if ($findcomments=mysqli_query($conn, $sql)) {
-            while ($row = mysqli_fetch_row($findcomments)) {
-              $nom = $row[1];
-              $com = $row[2];
-              $rta=$row[3];
-              echo "* <span class='Rnom'>$nom</span> - $com";
-              echo "<br>";
-              if (! $rta=="") {
-                echo "<span class='Rrespuesta'>-$rta</span>";
-              }
-              echo "<br>";
-            }
-          } else {
-            echo "Error updating record: " . mysqli_error($conn);
-          }
-         ?>
-      </div>
-      <textarea name="comentario" rows="3" cols="50" maxlength="200" class="cajaComs2"></textarea>
-      <input type="submit" name="Coment" value="Publicar" class="Bcomnt">
-    </form>
-  </footer>
 </html>

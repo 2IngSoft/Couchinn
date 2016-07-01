@@ -19,7 +19,7 @@ try {
       $_SESSION["premium"]=$fila[4];
       if($_POST["email"]!="angelica.portacelutti@gmail.com"){
         header("location: couchInnIndexSesionIniciada.php");
-      
+
       } else {
         header("location: indexAdmin.php");
       }
