@@ -142,18 +142,29 @@
                 <li><label for="telefono">Telefono: <input type="tel" placeholder="Ingrese su telefono" maxlength="10" name="telefono" value="<?php if (isset($_POST['telefono'])) {echo $_POST['telefono'];} else {echo $fila[5];} ?>"> <?php if(isset($errors['telefono'])) echo $errors['telefono']; ?> </label></li>
                 <li><label for="contrasena">Contrasena: <input type="password" placeholder="Ingrese su contrasena" maxlength="10" name="contrasena" value="<?php if (isset($_POST['contrasena'])) {echo $_POST['contrasena'];} else {echo $fila[6];} ?>"> <?php if(isset($errors['contrasena'])) echo $errors['contrasena']; ?> </label></li>
                 <li><label for="contrasena2">Confirmar: <input type="password" placeholder="Confirmar contrasena" maxlength="10" name="contrasena2" value="<?php if (isset($_POST['contrasena2'])) {echo $_POST['contrasena2'];} else {echo $fila[6];} ?>"> <?php if(isset($errors['contrasena2'])) echo $errors['contrasena2']; ?> </label></li>
-                <li><label for="preg">Pregunta de seguridad:
+                <li><label for="preg">Pregunta de seguridad: <select name="pregunta_de_seguridad">
                   <?php
+                    if (isset($_POST['pregunta_de_seguridad'])) {
+                      $seleccionada=$_POST['pregunta_de_seguridad'];
+                    } else {
+                      $elegida=$fila[9];
+                      $sql="SELECT `TEXTO` FROM `preguntasdeseguridad` WHERE `idPREGUNTASDESEGURIDAD`='$elegida'";
+                      $resultado=mysqli_query($conn,$sql);
+                      $elegida=mysqli_fetch_row($resultado);
+                      $seleccionada=$elegida[0];
+                    }
                     $sql="SELECT * FROM `preguntasdeseguridad`";
                     $resultado=mysqli_query($conn,$sql);
-                    echo "<select name='pregunta_de_seguridad' required='true'>";
                     while ($fila2=mysqli_fetch_row($resultado)) {
-                      echo "<option>";
+                      if ($fila2[1]==$seleccionada) {
+                        echo "<option selected=\"selected\">";
+                      } else {
+                        echo "<option>";
+                      }
                       echo $fila2[1] . "</option>";
                     }
-                    echo "</select>";
                   ?>
-                </label></li>
+                </select></label></li>
                 <li><label for="resp"> Respuesta: <input type="password" placeholder="Respuesta" maxlength="10" name="resp" value="<?php if (isset($_POST['resp'])) {echo $_POST['resp'];} else {echo $fila[7];} ?>"> <?php if(isset($errors['resp'])) echo $errors['resp']; ?> </label></li>
               </ul>
               <input type="submit" class="editar" value="Enviar" name="perfilenviar"/>
