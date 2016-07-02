@@ -2,7 +2,7 @@ body {
   background-image: url(Fondo_Main_3.jpg);
   background-size: cover;
 }
-.main, aside, footer{
+.main, aside{
   background-color: rgba(255, 255, 255, 0.75);
   position: absolute;
   padding: 5px 5px;
@@ -29,22 +29,32 @@ body {
   position: absolute;
   top: 35px;
 }
-.cancelar{
-  display: inline-block;
-  position: absolute;
-  left: 200px;
-  top: 250px;
-}
-.editar{
+/*
+.volver{
   display: inline-block;
   position: absolute;
   left: 300px;
+  top: 450px;
+}
+*/
+.editar{
+  display: inline-block;
+  position: absolute;
+  left: 280px;
   top: 250px;
 }
-footer{
-  text-align: center;
-  top: 30px;
-  height: 30px;
-  margin: -5px;
-  padding: 0px 0px;
+.alertOK, .alertERROR {
+    position: absolute;
+    top: 30px;
+    color: white;
+    text-align: center;
+    padding: 0px 20px 0px 20px;
+}
+.alertOK{
+  background-color: lightgreen;
+  left: 150px;
+}
+.alertERROR{
+  background-color: #f44336; /* Red */
+  left: 300px;
 }
