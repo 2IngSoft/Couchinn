@@ -26,8 +26,33 @@
     <section class="wrapper"> <!-- CONTENEDOR -->
       <section class="main">
         <article>
-          <h2>Hospedaje</h2>
-
+          <?php
+            $sql="SELECT p.TITULO, prov.NOMBRE, c.NOMBRE, h.NOMBRE, p.CAPACIDAD, p.DESCRIPCION, p.FECHA_ALTA FROM publicaciones p INNER JOIN ciudades c ON(p.idCIUDADES = c.idCIUDADES) INNER JOIN provincias prov ON (prov.idPROVINCIAS = c.idPROVINCIAS) INNER JOIN tipos_de_hospedajes h ON (p.idTIPOS_DE_HOSPEDAJES = h.idTIPOSDEHOSPEDAJES) WHERE idPUBLICACIONES='$idHospedaje'";
+            $result=mysqli_query($conn,$sql);
+            $row = mysqli_fetch_row($result);
+           ?>
+          <h2><?php echo "$row[0]"; ?></h2>
+          <div class="datos">
+            <p><?php echo $row[1] . ", " . $row[2] . "."; ?></p>
+            <p><?php echo $row[3] . ", para " . $row[4] . " personas."; ?></p>
+            <p><?php echo $row[5]; ?></p>
+            <p><?php echo $row[6]; ?></p>
+          </div>
+          <?php
+            $sql="SELECT `IMAGEN` FROM `imagenes` WHERE `idPUBLICACIONES`='$idHospedaje'";
+            $result=mysqli_query($conn,$sql);
+            $row = mysqli_fetch_row($result);
+           ?>
+          <div class="imgs">
+            <img src='<?php echo "$row[0]"; ?>' alt="" height="300px" width="300px" />
+          </div>
+          <div class="imgs2">
+            <?php
+              while($row = mysqli_fetch_row($result)){
+                echo "<img src='" . $row[0] ."' height='100px' width='100px'/>";
+              }
+            ?>
+          </div>
         </article>
       </section>
       <aside>

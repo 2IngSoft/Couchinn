@@ -134,7 +134,7 @@
         </script>
         <article>
           <h2 id="test">Perfil</h2>
-            <form class="formulario" method="post">
+            <form class="formulario" method="post" action="PerfilEdit.php">
               <ul class="datos">
                 <li><label for="nombre">Nombre: <input type="text" placeholder="Ingrese su nombre" maxlength="10" name="nombre" value="<?php if (isset($_POST['nombre'])) {echo $_POST['nombre'];} else {echo $fila[1];} ?>"> <?php if(isset($errors['nombre'])) echo $errors['nombre']; ?> </label></li>
                 <li><label for="apellido">Apellido: <input type="text" placeholder="Ingrese su apellido" maxlength="10" name="apellido" value="<?php if (isset($_POST['apellido'])) {echo $_POST['apellido'];} else {echo $fila[2];} ?>"> <?php if(isset($errors['apellido'])) echo $errors['apellido']; ?> </label></li>
