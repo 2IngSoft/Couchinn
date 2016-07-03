@@ -32,28 +32,62 @@
         <h2 class="titulo">Respuestas pendientes</h2>
         <form class="" action="" method="post">
           <?php
-            $sql="SELECT `idHospedaje` FROM `comentarios` WHERE `Nombre`='$email' AND `Respuesta`!='' AND `Visto`='0'";
+            //$sql="SELECT `idHospedaje` FROM `comentarios` WHERE `Nombre`='$email' AND `Respuesta`!='' AND `Visto`='0'";
+            $sql="SELECT `Respuesta`, `Visto`, `idHospedaje` FROM `comentarios` WHERE `Nombre`='$email'";
             $idHosp=mysqli_query($conn,$sql);
             $arregloH=array();
+            $arregloHleido=array();
+            $arregloT=array();
             $cont=0;
+            $cont2=0;
             while ($rowH = mysqli_fetch_row($idHosp)) {
-              $idHp=$rowH[0];
+              $idHp=$rowH[2];
               $tf=true;
+              $tf2=true;
               foreach ($arregloH as $key => $value) {
-                if ($idHp==$value) {
+                if ($idHp==$value) { //Filtra hospedajes repetidos
                   $tf=false;
                 }
               }
-              if ($tf) {
-                $arregloH[$cont]=$idHp;
-                $sql="SELECT `TITULO` FROM `publicaciones` WHERE `idPUBLICACIONES`='$idHp'";
-                $tituloH=mysqli_query($conn,$sql);
-                $rowT = mysqli_fetch_row($tituloH);
-                $tituloH=$rowT[0];
-                echo "<h3 class=\"titulo2\">$tituloH -</h3>";
-                echo "<input type=\"submit\" name=\"subN$idHp\" value=\"Respuesta pendiente\" class=\"texto\">";
+              foreach ($arregloHleido as $key => $value) {
+                if ($idHp==$value) {
+                  $tf2=false;
+                }
+              }
+              $sql="SELECT `TITULO` FROM `publicaciones` WHERE `idPUBLICACIONES`='$idHp'";
+              $tituloH=mysqli_query($conn,$sql);
+              $rowT = mysqli_fetch_row($tituloH);
+              $tituloH=$rowT[0];
+              if (($rowH[0]!='') & ($rowH[1]=='0')) {
+                if ($tf) {
+                  $arregloH[$cont]=$idHp;
+                  $cont+=1;
+                  echo "<h3 class=\"titulo2\">$tituloH -</h3>";
+                  echo "<input type=\"submit\" name=\"subN$idHp\" value=\"Respuesta pendiente\" class=\"texto\">";
+                  echo "<br>";
+                }
+              } else {
+                if (($tf2) & ($tf)) { //Si todavia no fue escrita
+                  $arregloHleido[$cont2]=$idHp;
+                  $arregloT[$cont2]=$tituloH;
+                  $cont2+=1;
+                }
+              }
+            }
+            $cont2=0;
+            foreach ($arregloT as $key => $value) {
+              $tf2=true;
+              foreach ($arregloH as $key2 => $value2) {
+                if ($value2==$arregloHleido[$cont2]) { //Filtra los q ya aparecen como pendientes
+                  $tf2=false;
+                }
+              }
+              if ($tf2) {
+                echo "<h3 class=\"titulo2\">$value -</h3>";
+                echo "<p class=\"texto2\">No hay respuestas sin leer</p>";
                 echo "<br>";
               }
+              $cont2+=1;
             }
           ?>
         </form>

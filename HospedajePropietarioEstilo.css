@@ -43,6 +43,9 @@ body {
   left: 0px;
   margin: 0px 10px 0px 10px;
 }
+.imgs2 img{
+  margin: 0px 5px 0px 0px;
+}
 aside{
   left: 900px;
   width: 500px;
