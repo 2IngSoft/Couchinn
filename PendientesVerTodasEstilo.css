@@ -1,0 +1,56 @@
+body {
+  background-image: url(Fondo_Main_3.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.main{
+  background-color: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  top: 180px;
+  left: 100px;
+  width: 1100px;
+  min-height: 500px;
+  padding: 20px;
+}
+.titulo{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.nombre{
+  font-weight: bold;
+}
+.pregunta{
+  position: relative;
+  left: 20px;
+}
+.rta{
+  position: relative;
+  left: 40px;
+}
+.responder{
+  color: blue;
+}
+.titulo2{
+  text-decoration: underline;
+}
+.rta2{
+  position: relative;
+  left: 40px;
+}
+.Bresponder{
+  color: blue;
+  border-style: none;
+  background-color: transparent;
+}
+.cajaComs{
+  display: block;
+  resize: none;
+  position: relative;
+  width: 1000px;
+  left: 40px;
+}
+.Bcomnt{
+  position: relative;
+  left: 500px;
+  margin: 10px;
+}

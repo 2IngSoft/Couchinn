@@ -71,12 +71,17 @@
               $nom = $row[1];
               $com = $row[2];
               $rta=$row[3];
-              echo "* <span class='Rnom'>$nom</span> - $com";
-              echo "<br>";
-              if (! $rta=="") {
-                echo "<span class='Rrespuesta'>-$rta</span>";
+              echo "<p>";
+              if ($nom==$email) {
+                echo "* <span class='RnomB'>$nom</span> - $com";
+              } else {
+                echo "* <span class='Rnom'>$nom</span> - $com";
               }
-              echo "<br>";
+              echo "</p>";
+              if (! $rta=="") {
+                echo "<p class='Rrespuesta'>-$rta</p>";
+              }
+              //echo "<br>";
             }
           } else {
             echo "Error updating record: " . mysqli_error($conn);

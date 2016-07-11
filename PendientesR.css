@@ -27,9 +27,14 @@ aside{
 .texto{
   position: relative;
   left: 10px;
+  font-weight: bold;
 }
 .texto2{
-  display: inline-block;
   position: relative;
   left: 10px;
+}
+.verTodo{
+  position: absolute;
+  bottom: 20px;
+  left: 270px;
 }

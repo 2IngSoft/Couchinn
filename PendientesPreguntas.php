@@ -3,19 +3,29 @@
   $conn = mysqli_connect("localhost","root","","couchinn");
   $email=$_SESSION['usuario'];
   if ($_POST) {
-    $tf=false;
-    foreach($_POST as $kkey => $vvalue) {
-      if (substr($kkey,0,3)=="sub") {
-        $idH=substr($kkey,4);
-        $tf=true;
-      }
-    }
-    if ($tf) {
-      $_SESSION['idHosp']=$idH;
-      if (substr($kkey,3,1)=="P") {
-        header("Location: HospedajePropietario.php");
-      }else {
-        header("Location: Hospedaje.php");
+    if (isset($_POST["verTodoR"])) {
+      $_SESSION['PendientesVerTodasVF']='Respuestas';
+      header("Location: PendientesVerTodas.php");
+    } else {
+      if (isset($_POST["verTodoP"])) {
+        $_SESSION['PendientesVerTodasVF']='Preguntas';
+        header("Location: PendientesVerTodas.php");
+      } else {
+        $tf=false;
+        foreach($_POST as $kkey => $vvalue) {
+          if (substr($kkey,0,3)=="sub") {
+            $idH=substr($kkey,4);
+            $tf=true;
+          }
+        }
+        if ($tf) {
+          $_SESSION['idHosp']=$idH;
+          if (substr($kkey,3,1)=="P") {
+            header("Location: HospedajePropietario.php");
+          }else {
+            header("Location: Hospedaje.php");
+          }
+        }
       }
     }
   }
@@ -77,18 +87,25 @@
             $cont2=0;
             foreach ($arregloT as $key => $value) {
               $tf2=true;
+              $idHp=$arregloHleido[$cont2];
               foreach ($arregloH as $key2 => $value2) {
-                if ($value2==$arregloHleido[$cont2]) { //Filtra los q ya aparecen como pendientes
+                if ($value2==$idHp) { //Filtra los q ya aparecen como pendientes
                   $tf2=false;
                 }
               }
               if ($tf2) {
                 echo "<h3 class=\"titulo2\">$value -</h3>";
-                echo "<p class=\"texto2\">No hay respuestas sin leer</p>";
+                echo "<input type=\"submit\" name=\"subN$idHp\" value=\"No hay respuestas sin leer\" class=\"texto2\">";
+                //echo "<p class=\"texto2\">No hay respuestas sin leer</p>";
                 echo "<br>";
               }
               $cont2+=1;
             }
+            if (0<count($arregloH)) {
+              echo "<input type=\"submit\" name=\"verTodoR\" value=\"Ver todas\" class=\"verTodo\">";
+            }/* else {
+              echo "<input type=\"submit\" name=\"verTodoR\" value=\"Ver todas\" class=\"verTodo\" disabled=\"\">";
+            }*/
           ?>
         </form>
       </section>
@@ -102,24 +119,38 @@
           $idU=$rowU[0];
           $sql="SELECT `idPUBLICACIONES`, `TITULO` FROM `publicaciones` WHERE `idUSUARIOS`='$idU' AND `ACTIVA`='1'";
           $idPublicaciones=mysqli_query($conn,$sql);
+          $HsinPreguntas=array();
+          $idHsinPreguntas=array();
+          $botonAbilitado=false;
           while ($row = mysqli_fetch_row($idPublicaciones)) {
             echo "<div>";
             $id1=$row[0];
             $tituloH=$row[1];
-            echo "<h3 class=\"titulo2\">$tituloH -</h3>";
             $sql2="SELECT `Respuesta` FROM `comentarios` WHERE `idHospedaje`='$id1'";
             $resps=mysqli_query($conn,$sql2);
             $tf=true;
             while (($row2 = mysqli_fetch_row($resps)) & ($tf)) {
               if ($row2[0]=='') {
+                echo "<h3 class=\"titulo2\">$tituloH -</h3>";
                 echo "<input type=\"submit\" name=\"subP$id1\" value=\"Pregunta pendiente\" class=\"texto\">";
                 $tf=false;
+                $botonAbilitado=true;
               }
             }
             if ($tf) {
-              echo "<span class=\"texto\">No hay preguntas pendientes</span>";
+              $HsinPreguntas[$cont]=$tituloH;
+              $idHsinPreguntas[$cont]=$id1;
             }
             echo "</div>";
+          }
+          foreach ($idHsinPreguntas as $key => $value) {
+            echo "<div>";
+            echo "<h3 class=\"titulo2\">$HsinPreguntas[$key] -</h3>";
+            echo "<input type=\"submit\" name=\"subP$value\" value=\"No hay preguntas pendientes\" class=\"texto2\">";
+            echo "</div>";
+          }
+          if ($botonAbilitado) {
+            echo "<input type=\"submit\" name=\"verTodoP\" value=\"Ver todas\" class=\"verTodo\">";
           }
           ?>
         </form>

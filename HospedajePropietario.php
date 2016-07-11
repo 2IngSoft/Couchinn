@@ -1,25 +1,26 @@
 <?php
   require("cabecera_estandar_sesion_iniciada.php");
   $conn = mysqli_connect("localhost","root","","couchinn");
-  $NumComent="Vacio";
   $idHospedaje=$_SESSION['idHosp']; //Variable Global
+  if (! isset($_SESSION['idComent'])) {
+    $_SESSION['idComent']='Vacio';
+  }
   if ($_POST) {
     //session_start();
-    if (!($_POST['comentario']=="")) {
-      $email=$_SESSION['usuario'];
-      $comen=$_POST['comentario'];
-      if (isset($_POST['Coment'])) { // (IF) SIN FUNCION SI BOTON PUBLICAR NO ESTA
-          $ins="INSERT INTO `comentarios`(`Nombre`, `Comentario`, `idHospedaje`) VALUES ('$email','$comen','$idHospedaje')";
-      }else {
-        foreach($_POST as $kkey => $vvalue) {
-          if (substr($kkey,0,3)=="sub") {
-            $NumComent=substr($kkey,3);
-          }
-        }
+    if (isset($_POST['Coment'])) {
+      if (!($_POST['comentario']=="")) {
+        $kkey=$_SESSION['idComent'];
+        $NumComent=substr($kkey,3);
+        $comen=$_POST['comentario'];
         $ins = "UPDATE `comentarios` SET `Respuesta` = '$comen' WHERE `comentarios`.`ID` = '$NumComent' ";
+        $result=mysqli_query($conn,$ins);
       }
-      $result=mysqli_query($conn,$ins);
-      //header("Location: HospedajePropietario.php");
+    }else {
+      foreach($_POST as $kkey => $vvalue) {
+        if (substr($kkey,0,3)=="sub") { //checkea si se apreto un responder
+          $_SESSION['idComent']=$kkey;
+        }
+      }
     }
   }
  ?>
@@ -80,22 +81,28 @@
               $nom = $row[1];
               $com = $row[2];
               $rta=$row[3];
-              echo "* <span class='Rnom'>$nom</span> - $com";
-              echo "<br>";
+              echo "<p>* <span class='Rnom'>$nom</span> - $com</p>";
+              //echo "<br>";
               if ($rta=="") {
-                echo "<input type='submit' name=\"sub$id\" value=\"Responder\" class='Rresponder'>";
+                $kkey=$_SESSION['idComent'];
+                if ((substr($kkey,0,3)=="sub") & (substr($kkey,3)=="$id")) {
+                  $vvalue=substr($kkey,3);
+                  echo "<div><textarea name=\"comentario\" rows=\"3\" cols=\"50\" maxlength=\"200\" class=\"cajaComs2\"></textarea>";
+                  echo "<input type=\"submit\" name=\"Coment\" value=\"Publicar\" class=\"Bcomnt\"></div>";
+                  $_SESSION['idComent']="IdC$vvalue";
+                } else {
+                  echo "<input type='submit' name=\"sub$id\" value=\"Responder\" class='Rresponder'>";
+                }
               }else {
-                echo "<span class='Rrespuesta'>-$rta</span>";
+                echo "<p class='Rrespuesta'>-$rta</p>";
               }
-              echo "<br>";
+              //echo "<br>";
             }
           } else {
             echo "Error updating record: " . mysqli_error($conn);
           }
          ?>
       </div>
-      <textarea name="comentario" rows="3" cols="50" maxlength="200" class="cajaComs2"></textarea>
-      <!--<input type="submit" name="Coment" value="Publicar" class="Bcomnt">-->
     </form>
   </footer>
 </html>

@@ -56,9 +56,9 @@ footer{
   position: absolute;
   top: 700px;
   left: 50px;
-  height: auto;
+  min-height: 300px;
   width: 1350px;
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
   margin: 5px;
 }
 .cajaComs1{
@@ -71,6 +71,10 @@ footer{
 }
 .Rnom{
   font-weight: bold;
+}
+.RnomB{
+  font-weight: bold;
+  color: blue;
 }
 .cajaComs2{
   resize: none;
