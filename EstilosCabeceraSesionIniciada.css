@@ -6,6 +6,8 @@ header{
 
 body{
   background-image: url("Fondo_Main_3.jpg");
+  background-size: cover;
+  background-attachment: fixed;
   font-family: Arial;
 }
 #encabezado{
