@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-07-2016 a las 23:52:23
+-- Tiempo de generación: 16-07-2016 a las 11:02:31
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -2442,34 +2442,80 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`ID`, `Nombre`, `Comentario`, `Respuesta`, `Visto`, `Fecha y hora`, `idHospedaje`) VALUES
-(4, 'asd@asd', 'a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 0, '2016-06-29 13:53:53', 59),
-(5, 'asd@asd', 'Este es un texto de prueba', '', 0, '2016-06-29 13:53:53', 60),
-(6, 'asd@asd', 'comentario', '', 0, '2016-06-29 13:53:53', 60),
-(7, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', 0, '2016-06-29 13:53:53', 60),
-(8, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un tex', '', 0, '2016-06-29 13:53:53', 60),
-(9, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un tex', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un', 0, '2016-06-29 13:53:53', 60),
-(10, 'asd@asd', 'Esto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebaEsto es un texto de prueba Esto es un texto de pruebavEsto es un texto de prueba Esto es un te', 'Respuesta a 10', 0, '2016-06-29 13:53:53', 60),
-(11, 'asd@asd', 'Algo', 'asd', 0, '2016-06-29 13:53:53', 60),
-(12, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 0, '2016-06-29 13:53:53', 60),
-(13, 'a@a', 'A todos', 'Respuesta a 13', 0, '2016-06-29 13:53:53', 60),
-(14, 'a@a', 'A todos', 'Respuesta a 14', 0, '2016-06-29 13:53:53', 60),
-(15, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', 0, '2016-06-29 13:53:53', 60),
-(16, 'a@a', 'Test', 'Respuesta a Test', 0, '2016-06-29 13:53:53', 60),
-(17, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', '', 0, '2016-06-29 13:53:53', 64),
-(18, 'a@a', 'Comentario', '', 0, '2016-06-29 13:53:53', 64),
-(19, 'a@a', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 'Respuesta', 0, '2016-06-29 13:53:53', 64),
-(20, 'carl.carlson@gmail.com', 'Pregunta de prueba?', 'Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un texto de prueba Esto es un ', 0, '2016-06-29 15:18:40', 65),
-(21, 'carl.carlson@gmail.com', 'Esta es otra pregunta de prueba?', '', 0, '2016-06-29 15:21:14', 65),
-(22, 'lenny.leonard@gmail.com', 'Lenny leonard', 'Respuesta', 0, '2016-06-29 23:32:54', 66),
-(23, 'lenny.leonard@gmail.com', 'Lenny leonard', 'Respuesta', 0, '2016-06-29 23:32:54', 66),
-(24, 'lenny.leonard@gmail.com', 'Pregunta', '', 0, '2016-06-29 23:46:02', 66),
-(25, 'lenny.leonard@gmail.com', 'pregunta?', 'asd', 0, '2016-06-29 23:46:26', 66),
-(26, 'lenny.leonard@gmail.com', 'Texto', 'Algo', 0, '2016-06-29 23:47:35', 66),
-(27, 'lenny.leonard@gmail.com', 'asd', 'qwe', 0, '2016-06-29 23:50:27', 68),
-(28, 'lenny.leonard@gmail.com', 'zxc', '', 0, '2016-06-30 13:22:20', 66),
-(29, 'lenny.leonard@gmail.com', 'Texto', 'Algo', 0, '2016-06-29 23:47:35', 60),
-(30, 'lenny.leonard@gmail.com', 'Texto', 'Algo', 0, '2016-06-29 23:47:35', 64),
-(31, 'lenny.leonard@gmail.com', 'Texto', 'Algo', 0, '2016-06-29 23:47:35', 65);
+(1, 'lenny.leonard@gmail.com', 'so wthing ciguatera adherable odylism envies neurolysis interrelationship garganey electrotonically snobbisms apyrexia ountercyclical sluggishness clinicopatholog ically exponential asteridian la aryn', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested en', 0, '2016-07-16 06:55:19', 68),
+(2, 'lenny.leonard@gmail.com', 'aryngologists hotbeds unimpeachably stimy yorps transistor pelycosaurs flambees aryngologists hotbeds unimpeachably stimy yorps transistor pelycosaurs flambees aryngologists hotbeds unimpeachably stim', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 06:56:05', 67),
+(3, 'lenny.leonard@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema misinfers housebreaks driblet optometries indeterminism distrainers idolist remamisinfers housebreaks driblet optometri', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 06:56:59', 65),
+(4, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist remamisinfers housebreaks driblet optometries indeterminism distrainers idolist remamisinfers housebreaks driblet optometrie', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 06:57:49', 68),
+(5, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 06:58:03', 67),
+(6, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 06:58:10', 65),
+(7, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', '', 0, '2016-07-16 06:58:20', 60),
+(8, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 06:58:26', 59),
+(9, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 06:58:32', 66),
+(10, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 06:58:39', 64),
+(11, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', '', 0, '2016-07-16 07:01:10', 60),
+(12, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:01:17', 59),
+(13, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:01:23', 66),
+(14, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:01:31', 64),
+(15, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 07:02:14', 68),
+(16, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 07:02:22', 67),
+(17, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 07:02:28', 65),
+(18, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 0, '2016-07-16 07:02:35', 60),
+(19, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:02:42', 59),
+(20, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:02:49', 66),
+(21, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:02:54', 64),
+(22, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 07:03:28', 68),
+(23, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 07:03:36', 67),
+(24, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 07:03:41', 65),
+(25, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 0, '2016-07-16 07:03:47', 60),
+(26, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:03:53', 59),
+(27, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:03:58', 66),
+(28, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:04:04', 64),
+(29, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested en', 0, '2016-07-16 07:04:37', 68),
+(30, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 07:04:44', 67),
+(31, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested en', 0, '2016-07-16 07:04:53', 65),
+(32, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 0, '2016-07-16 07:04:59', 60),
+(33, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:05:05', 59),
+(34, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:05:10', 66),
+(35, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', 'ntidas ampassies skgormchf haps saccharin aerosats pil', 0, '2016-07-16 07:05:17', 64),
+(36, 'lenny.leonard@gmail.com', 'so wthing ciguatera adherable odylism envies neurolysis interrelationship garganey electrotonically snobbisms apyrexia ountercyclical sluggishness clinicopatholog ically exponential asteridian la aryn', '', 0, '2016-07-16 06:55:19', 68),
+(37, 'lenny.leonard@gmail.com', 'aryngologists hotbeds unimpeachably stimy yorps transistor pelycosaurs flambees aryngologists hotbeds unimpeachably stimy yorps transistor pelycosaurs flambees aryngologists hotbeds unimpeachably stim', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested en', 0, '2016-07-16 06:56:05', 67),
+(38, 'lenny.leonard@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema misinfers housebreaks driblet optometries indeterminism distrainers idolist remamisinfers housebreaks driblet optometri', '', 0, '2016-07-16 06:56:59', 65),
+(39, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist remamisinfers housebreaks driblet optometries indeterminism distrainers idolist remamisinfers housebreaks driblet optometrie', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 06:57:49', 68),
+(40, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introj', 0, '2016-07-16 06:58:03', 67),
+(41, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested enumerations undee althorn unhalsed introjdied spasmatical uplights decongested en', 0, '2016-07-16 06:58:10', 65),
+(42, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', '', 0, '2016-07-16 06:58:20', 60),
+(43, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 06:58:26', 59),
+(44, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', '', 0, '2016-07-16 06:58:32', 66),
+(45, 'ralph.gorgory@gmail.com', 'misinfers housebreaks driblet optometries indeterminism distrainers idolist rema', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 06:58:39', 64),
+(46, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 0, '2016-07-16 07:01:10', 60),
+(47, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:01:17', 59),
+(48, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', '', 0, '2016-07-16 07:01:23', 66),
+(49, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', '', 0, '2016-07-16 07:01:31', 64),
+(50, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', '', 0, '2016-07-16 07:02:14', 68),
+(51, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', '', 0, '2016-07-16 07:02:22', 67),
+(52, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', '', 0, '2016-07-16 07:02:28', 65),
+(53, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', '', 0, '2016-07-16 07:02:35', 60),
+(54, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 0, '2016-07-16 07:02:42', 59),
+(55, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', '', 0, '2016-07-16 07:02:49', 66),
+(56, 'juan.perez@gmail.com', 'died spasmatical uplights decongested enumerations undee althorn unhalsed introj', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic p', 0, '2016-07-16 07:02:54', 64),
+(57, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', '', 0, '2016-07-16 07:03:28', 68),
+(58, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', '', 0, '2016-07-16 07:03:36', 67),
+(59, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', '', 0, '2016-07-16 07:03:41', 65),
+(60, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 0, '2016-07-16 07:03:47', 60),
+(61, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic preset', 0, '2016-07-16 07:03:53', 59),
+(62, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', '', 0, '2016-07-16 07:03:58', 66),
+(63, 'andrurodr@sadsada', 'nioses overorchestrating pastorship ontically olitory uncrumpled entrails numino', '', 0, '2016-07-16 07:04:04', 64),
+(64, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', '', 0, '2016-07-16 07:04:37', 68),
+(65, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', '', 0, '2016-07-16 07:04:44', 67),
+(66, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', '', 0, '2016-07-16 07:04:53', 65),
+(67, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', '', 0, '2016-07-16 07:04:59', 60),
+(68, 'vicky.manchitas@gmail.com', 'rnalizing expellable wiel infinitary alphabet chowri pyxidia tearstains pretypes', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:05:05', 59),
+(69, 'lenny.leonard@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:43:29', 70),
+(70, 'lenny.leonard@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:43:41', 69),
+(71, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizoph', '', 0, '2016-07-16 07:44:06', 70),
+(72, 'carl.carlson@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 0, '2016-07-16 07:44:17', 69),
+(73, 'juan.perez@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosa', '', 0, '2016-07-16 07:44:58', 70),
+(74, 'juan.perez@gmail.com', 'ntidas ampassies skgormchf haps saccharin aerosats pillworts', '', 0, '2016-07-16 07:45:11', 69);
 
 -- --------------------------------------------------------
 
@@ -2506,7 +2552,9 @@ INSERT INTO `imagenes` (`idIMAGENES`, `IMAGEN`, `idPUBLICACIONES`) VALUES
 (160, 'imagenes_usuarios/php57A2_lenny_concentrado.jpg', 60),
 (161, 'imagenes_usuarios/php1AD7_casa_3.jpg', 66),
 (162, 'imagenes_usuarios/php8A21_casa_4.jpg', 64),
-(163, 'imagenes_usuarios/php88EC_casa_5.jpg', 64);
+(163, 'imagenes_usuarios/php88EC_casa_5.jpg', 64),
+(164, 'imagenes_usuarios/phpFE3F_casa_2.jpg', 69),
+(165, 'imagenes_usuarios/php8A23_casa_8.jpg', 70);
 
 -- --------------------------------------------------------
 
@@ -2546,10 +2594,10 @@ CREATE TABLE `preguntasdeseguridad` (
 --
 
 INSERT INTO `preguntasdeseguridad` (`idPREGUNTASDESEGURIDAD`, `TEXTO`) VALUES
-(1, 'Nombre de tu primera mascota:'),
-(2, 'Nombre de tu abuelo:'),
-(3, 'Nombre de tu mejor amigo/a:'),
-(4, 'Nombre del primer lugar donde vacacionaste:'),
+(1, 'Nombre de tu primera mascota'),
+(2, 'Nombre de tu abuelo'),
+(3, 'Nombre de tu mejor amigo/a'),
+(4, 'Nombre del primer lugar donde vacacionaste'),
 (5, 'Tu ciudad natal');
 
 -- --------------------------------------------------------
@@ -2624,7 +2672,9 @@ INSERT INTO `publicaciones` (`idPUBLICACIONES`, `FECHA_ALTA`, `TITULO`, `CAPACID
 (65, '2016-07-01 18:27:42', 'Increíble departamento entre las ruinas', 8, 'Te vas a sentir como en la antigua Grecia cuando vengas a este loco departamento', 66, 6, 2, 1, '2016-07-01 18:27:42'),
 (66, '2016-06-27 17:07:48', 'Solo un ejemplo', 5, 'lsdld,fdaslk jlsaj fasd asdkfa.asd flasdflk ajñsfk jañ', 60, 1, 2, 1, '2016-06-27 17:07:48'),
 (67, '2016-07-01 18:28:37', 'Departamento flotante', 4, 'Este departamento flotante tiene las mejores vistas.. si no te molesta la altura :D', 66, 527, 2, 1, '2016-07-01 18:28:37'),
-(68, '2016-07-01 18:39:50', 'Curiosa cabaña', 6, 'La UNICA cabaña invertida de Argentina. ¿Te lo vas a perder?', 66, 1456, 3, 1, '2016-07-01 18:39:50');
+(68, '2016-07-01 18:39:50', 'Curiosa cabaña', 6, 'La UNICA cabaña invertida de Argentina. ¿Te lo vas a perder?', 66, 1456, 3, 1, '2016-07-01 18:39:50'),
+(69, '2016-07-16 08:08:58', 'La mejor casa', 6, 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic', 64, 282, 1, 0, '2016-07-16 08:08:58'),
+(70, '2016-07-16 07:40:51', 'En medio de la nada', 2, 'ntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps saccharin aerosats pillworts schizophytic presetntidas ampassies skgormchf haps sacchari', 64, 1461, 3, 1, '2016-07-16 07:40:51');
 
 -- --------------------------------------------------------
 
@@ -2672,12 +2722,12 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`idUSUARIOS`, `NOMBRE`, `APELLIDO`, `FECHANAC`, `EMAIL`, `TELEFONO`, `CONTRASENA`, `RESPUESTASEG`, `FECHADEALTA`, `idPREGUNTASDESEGURIDAD`, `Premium`) VALUES
 (1, 'Angélica', 'Portacelutti', '1986-06-02', 'angelica.portacelutti@gmail.com', '', 'Angelica', 'Fido', '2016-06-02 19:52:58', 1, 0),
-(60, 'Lenny', 'Leonard', '1998-05-13', 'lenny.leonard@gmail.com', '5555555', 'asdasd', 'Carl Carlson', '2016-06-02 20:05:06', 3, 1),
+(60, 'Lenny', 'Leonard', '1990-05-13', 'lenny.leonard@gmail.com', '5555555', 'asdasd', 'Carl Carlson', '2016-06-02 20:05:06', 2, 1),
 (64, 'Ralph', 'Gorgory', '2016-06-15', 'ralph.gorgory@gmail.com', '', 'asdasd', 'uiii', '2016-06-03 05:35:27', 4, 0),
 (66, 'Carl', 'Carlson', '1989-04-23', 'carl.carlson@gmail.com', '454645', 'asdasd', 'Lenny Leonard', '2016-06-04 08:19:21', 1, 1),
-(67, 'Juan', 'Perez', '1998-01-01', 'juan.perez@gmail.com', '4567894', 'chauchau', 'Tito', '2016-06-04 13:47:17', 3, 0),
-(68, 'Andres', 'Rodriguezñ', '1996-06-20', 'andrurodr@sadsada', '', 'andresro', 'dak', '2016-06-15 15:35:26', 1, 0),
-(70, 'Vicky', 'Manchitas', '1998-06-04', 'vicky.manchitas@gmail.com', '', 'manchitas', 'yo', '2016-06-19 15:50:17', 1, 0);
+(67, 'Juan', 'Perez', '1998-01-01', 'juan.perez@gmail.com', '4567894', 'asdasd', 'Tito', '2016-06-04 13:47:17', 3, 0),
+(68, 'Andres', 'Rodriguezñ', '1996-06-20', 'andrurodr@sadsada', '', 'asdasd', 'dak', '2016-06-15 15:35:26', 1, 0),
+(70, 'Vicky', 'Manchitas', '1998-06-04', 'vicky.manchitas@gmail.com', '1111111', 'asdasd', 'yo', '2016-06-19 15:50:17', 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -2753,12 +2803,12 @@ ALTER TABLE `ciudades`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `idIMAGENES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `idIMAGENES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
@@ -2778,7 +2828,7 @@ ALTER TABLE `provincias`
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `idPUBLICACIONES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `idPUBLICACIONES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT de la tabla `tipos_de_hospedajes`
 --
