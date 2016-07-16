@@ -241,7 +241,7 @@
           <div class="opcion_volver" onclick="volver()">
             << Volver
           </div>
-          <div class="opcion_eliminar" onclick="">
+          <div class="opcion_eliminar" onclick="alert('Para reservar, primero debes iniciar sesion :/')">
             Reservar
           </div>
           <!--<div id="des_pub" class="opcion_despublicar" onclick="accion(this.id,hacer); hacer = !hacer;"></div>

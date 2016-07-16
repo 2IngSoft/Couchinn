@@ -54,7 +54,7 @@ if(mysqli_num_rows($resultado)>0){
   while($fila=mysqli_fetch_row($resultado)){
     $sql_imagenes="SELECT IMAGEN FROM IMAGENES WHERE idPUBLICACIONES='$fila[0]'";
     $resultado_imagenes=mysqli_query($conexion,$sql_imagenes);
-    echo "<div id=".$fila[0]." class='publicacion_borde' onclick='cargar(this.id)'>";
+    echo "<div id=".$fila[0]." class='publicacion_borde' onclick='cargar(this.id);publicacion_clickeada=this.id;'>";
     echo "<div id='publicacion' class='publicacion'>";
     $imagen=mysqli_fetch_row($resultado_imagenes);
     echo "<div id='publicacion_contenido' class='publicacion_contenido'>";

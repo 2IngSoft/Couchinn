@@ -17,7 +17,7 @@
     </style>
   </head>
   <header id="encabezadoPrincipal">
-    <table>
+    <table id="encabezado">
       <tr>
         <td>
           <figure id=logoCouchInn><a href="couchInnIndexSesionIniciada.php"><img src="CouchInnLogo.png" width="270px" height="80px"/></a></figure>
@@ -50,7 +50,7 @@
               </td>
               <td>
                 <form id="opcion_usuario" action="PendientesPreguntas.php" method="post" onclick="this.form.submit()">
-                  <input type="submit" name="pendiente" value="Pendientes" id="submit_opcion_usuario">
+                  <input type="submit" name="publicar" value="Pendiente" id="submit_opcion_usuario">
                 </form>
               </td>
               <td>
@@ -58,18 +58,18 @@
                   <input type="submit" name="publicar" value="Publicar" id="submit_opcion_usuario">
                 </form>
               </td>
-              <td>
-                <form id="opcion_usuario" action="" method="post">
+    <!--          <td>
+                <form id="opcion_usuario" action="mis_reservas.php" method="post">
                   <input type="submit" name="mis_reservas" value="Mis Reservas" id="submit_opcion_usuario">
                 </form>
-              </td>
+              </td> -->
               <td>
                 <form id="opcion_usuario" action="ver_publicaciones.php" method="post">
                   <input type="submit" name="mis_publicaciones" value="Mis Publicaciones" id="submit_opcion_usuario">
                 </form>
               </td>
               <td>
-                <form id="opcion_usuario" action="" method="post">
+                <form id="opcion_usuario" action="mis_solicitudes.php" method="post">
                   <input type="submit" name="mis_solicitudes" value="Mis Solicitudes" id="submit_opcion_usuario">
                 </form>
               </td>

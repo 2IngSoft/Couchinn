@@ -31,8 +31,10 @@
     </style>
     <script src="jquery-3.0.0.min.js"></script>
     <script>
+      var publicacion_clickeada=0;
       $(document).ready(function(){
         $("#contenedor_fixed").hide();
+        $("#volverADetalle").hide();
         $("#estadisticas_busqueda").hide();
         cargar_publicaciones("todas","todas");
         $.ajax({
@@ -96,14 +98,22 @@
         setTimeout ("$('#estadisticas_busqueda').hide(100)",0);
         $("#contenedor_publicaciones").hide(500);
         $("#filtros_busqueda_borde").hide();
-        $("#contenedor_detalle").show(500).load("detalle_publicacion.php",{ "publicacion":id});
         $("#contenedor_fixed").show(500);
+        $("#contenedor_detalle").show(500).load("detalle_publicacion.php",{ "publicacion":id });
       }
       function volver(){
         $("#contenedor_fixed").hide(250);
         $("#contenedor_detalle").hide(250);
         $("#contenedor_publicaciones").show(250);
         $("#filtros_busqueda_borde").show(500);
+      }
+      function volverADetalle(){
+        $("#volverMain").show();
+        $("#fixed_reservar").show();
+        $("#volverADetalle").hide();
+        $("#contenedor_reservar").hide(250);
+        $("#contenedor_reservar").empty();
+        $("#contenedor_detalle").show(250);
       }
       function buscar(){
         var frase=$("#cuadro_busqueda").val();
@@ -174,6 +184,26 @@
         resetearSelects();
         buscar();
       }
+      function reservar(id) {
+        var datos={ "id":id };
+        $.ajax({
+          type: "POST",
+          data: datos,
+          url: "prepara_reservar.php",
+          success:function(response) {
+            if(response=="No"){
+              $("#volverMain").hide();
+              $("#fixed_reservar").hide();
+              $("#volverADetalle").show();
+              $("#contenedor_detalle").hide(500);
+              $("#contenedor_reservar").show(250);
+              $("#contenedor_reservar").load("reservar.php");
+            } else {
+              alert("No podes reservar una publicacion tuya :/");
+            }
+          }
+        });
+      }
     </script>
   </head>
   <body>
@@ -211,7 +241,7 @@
                 </td>
                 <td>
                   <form id="opcion_usuario" action="PendientesPreguntas.php" method="post" onclick="this.form.submit()">
-                    <input type="submit" name="publicar" value="Pendient" id="submit_opcion_usuario">
+                    <input type="submit" name="publicar" value="Pendiente" id="submit_opcion_usuario">
                   </form>
                 </td>
                 <td>
@@ -219,18 +249,18 @@
                     <input type="submit" name="publicar" value="Publicar" id="submit_opcion_usuario">
                   </form>
                 </td>
-                <td>
-                  <form id="opcion_usuario" action="" method="post">
+        <!--        <td>
+                  <form id="opcion_usuario" action="mis_reservas.php" method="post">
                     <input type="submit" name="mis_reservas" value="Mis Reservas" id="submit_opcion_usuario">
                   </form>
-                </td>
+                </td> -->
                 <td>
                   <form id="opcion_usuario" action="ver_publicaciones.php" method="post">
                     <input type="submit" name="mis_publicaciones" value="Mis Publicaciones" id="submit_opcion_usuario">
                   </form>
                 </td>
                 <td>
-                  <form id="opcion_usuario" action="" method="post">
+                  <form id="opcion_usuario" action="mis_solicitudes.php" method="post">
                     <input type="submit" name="mis_solicitudes" value="Mis Solicitudes" id="submit_opcion_usuario">
                   </form>
                 </td>
@@ -249,6 +279,7 @@
     <div id="alineador" class="alineador">
       <div id="contenedor_publicaciones"></div>
       <div id="contenedor_detalle"></div>
+      <div id="contenedor_reservar"></div>
     </div>
     <div id="filtros_busqueda_borde" class="filtros_busqueda_borde">
       <div id="marco_busqueda" class="marco_busqueda">
@@ -280,10 +311,13 @@
     <div id="contenedor_fixed" class="contenedor_fixed">
       <div class="contiene_opciones_borde">
         <div class="contiene_opciones">
-          <div class="opcion_volver" onclick="volver()">
+          <div class="opcion_volver" id="volverADetalle" onclick="volverADetalle()">
             << Volver
           </div>
-          <div class="opcion_eliminar" onclick="">
+          <div class="opcion_volver" id="volverMain" onclick="volver()">
+            << Volver
+          </div>
+          <div class="opcion_eliminar" id="fixed_reservar" onclick="reservar(publicacion_clickeada)">
             Reservar
           </div>
           <!--<div id="des_pub" class="opcion_despublicar" onclick="accion(this.id,hacer); hacer = !hacer;"></div>

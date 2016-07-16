@@ -1,6 +1,10 @@
 <?php
   session_start();
-  $email=$_SESSION['usuario'];
+  if (isset($_SESSION['usuario'])) {
+    $email=$_SESSION['usuario'];
+  }else {
+    $email='anonimo';
+  }
   $publicacion=$_POST["publicacion"];
   $sql = "SELECT * FROM `comentarios` WHERE `idHospedaje` = '$publicacion'";
   $conn = mysqli_connect("localhost","root","","couchinn");
