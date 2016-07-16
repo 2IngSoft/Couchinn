@@ -16,30 +16,41 @@ body {
 }
 .main{
   display: inline-block;
-  left: 350px;
-  width: 700px;
-  top: 150px;
-  height: 490px;
+  margin: 30px 300px 30px 300px;
+  width: 900px;
+  height: 520px;
 }
 .main article{
   position: relative;
   top: 100px;
-  left: 50px;
+  left: 150px;
 }
 .main article h2{
   position: relative;
   left: 20px;
 }
+li, p{
+  margin: 3px 3px 3px 3px;
+}
+.labelsDatos, .datos{
+  font-size: 20px;
+}
+.labelsDatos{
+  position: relative;
+  left: 30px;
+}
 .datos{
   display: inline-block;
   position: absolute;
-  left: 180px;
-  top: 35px;
+  left: 250px;
+  top: 25px;
   list-style: none;
 }
 .editar{
   display: inline-block;
   position: absolute;
-  left: 250px;
-  top: 200px;
+  left: 240px;
+  top: 240px;
+  font-size: 20px;
+  cursor: pointer;
 }

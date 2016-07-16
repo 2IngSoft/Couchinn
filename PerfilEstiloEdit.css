@@ -10,14 +10,13 @@ body {
 }
 .main{
   display: inline-block;
-  left: 350px;
-  width: 700px;
-  top: 150px;
-  height: 490px;
+  margin: 30px 300px 30px 300px;
+  width: 900px;
+  height: 520px;
 }
 .main article{
   position: relative;
-  top: 100px;
+  top: 50px;
   left: 50px;
 }
 .main article h2{
@@ -28,6 +27,17 @@ body {
   display: inline-block;
   position: absolute;
   top: 35px;
+  font-size: 20px;
+}
+input, select{
+  font-size: 20px;
+}
+ul{
+  position: relative;
+  left: 30px;
+}
+li{
+  margin: 4px 4px 4px 4px;
 }
 /*
 .volver{
@@ -40,8 +50,8 @@ body {
 .editar{
   display: inline-block;
   position: absolute;
-  left: 280px;
-  top: 250px;
+  left: 350px;
+  top: 340px;
 }
 .alertOK, .alertERROR {
     position: absolute;
@@ -52,9 +62,9 @@ body {
 }
 .alertOK{
   background-color: lightgreen;
-  left: 150px;
+  left: 250px;
 }
 .alertERROR{
   background-color: #f44336; /* Red */
-  left: 300px;
+  left: 400px;
 }

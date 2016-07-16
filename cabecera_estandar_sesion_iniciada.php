@@ -49,6 +49,11 @@
                 </form>
               </td>
               <td>
+                <form id="opcion_usuario" action="PendientesPreguntas.php" method="post" onclick="this.form.submit()">
+                  <input type="submit" name="pendiente" value="Pendientes" id="submit_opcion_usuario">
+                </form>
+              </td>
+              <td>
                 <form id="opcion_usuario" action="crear_publicacion.php" method="post" onclick="this.form.submit()">
                   <input type="submit" name="publicar" value="Publicar" id="submit_opcion_usuario">
                 </form>

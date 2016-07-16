@@ -1,5 +1,5 @@
 <?php
-  //session_start();
+  //ssession_start();
   $conn = mysqli_connect("localhost","root","","couchinn");
   $email=$_SESSION['usuario'];
   $idHospedaje=$_SESSION['idHosp']; //Variable Global
@@ -32,16 +32,16 @@
               $nom = $row[1];
               $com = $row[2];
               $rta=$row[3];
+              echo "<p>";
               if ($nom==$email) {
                 echo "* <span class='RnomB'>$nom</span> - $com";
               } else {
                 echo "* <span class='Rnom'>$nom</span> - $com";
               }
-              echo "<br>";
+              echo "</p>";
               if (! $rta=="") {
-                echo "<span class='Rrespuesta'>-$rta</span>";
+                echo "<p class='Rrespuesta'>-$rta</p>";
               }
-              echo "<br>";
             }
           } else {
             echo "Error updating record: " . mysqli_error($conn);

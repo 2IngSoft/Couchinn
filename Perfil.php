@@ -14,7 +14,7 @@
         <!--<img src="HTML5Logo.png" width="100px" alt="Esto deberia ser una imagen" class="imgPerfil" />-->
         <article>
           <h2>Perfil</h2>
-            <ul>
+            <ul class="labelsDatos">
               <li><label for="nombre">Nombre:</label></li>
               <li><label for="apellido">Apellido:</label></li>
               <li><label for="mail">Correo:</label></li>
@@ -34,16 +34,16 @@
                   echo "ERROR";
                 }
                 $fila=mysqli_fetch_row($DATOS);
-                echo ($fila['1']),"<br>";
-                echo ($fila['2']),"<br>";
-                echo ($fila['4']),"<br>";
-                echo ($fila['3']),"<br>";
-                echo ($fila['5']),"<br>";
+                echo "<p>", ($fila['1']), "</p>";
+                echo "<p>", ($fila['2']), "</p>";
+                echo "<p>", ($fila['4']), "</p>";
+                echo "<p>", ($fila['3']), "</p>";
+                echo "<p>", ($fila['5']), "</p>";
                 $equis=$fila['9'];
                 $consulta="SELECT TEXTO FROM preguntasdeseguridad WHERE idPREGUNTASDESEGURIDAD='$equis'";
                 $DATO=mysqli_query($conexion,$consulta);
                 $dato2=mysqli_fetch_row($DATO);
-                echo ($dato2['0']);
+                echo "<p>", ($dato2['0']), "</p>";
                ?>
             </ul>
             <a href="PerfilEdit.php">
