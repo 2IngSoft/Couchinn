@@ -1,0 +1,35 @@
+body {
+  background-image: url(Fondo_Main_3.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.main, aside{
+  background-color: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  width: 600px;
+  min-height: 500px;
+  padding: 10px;
+}
+.main{
+  top: 180px;
+  left: 100px;
+}
+aside{
+  top: 180px;
+  left: 800px;
+}
+.titulo{
+  text-align: center;
+}
+.titulo2{
+  display: inline-block;
+}
+.texto{
+  position: relative;
+  left: 10px;
+}
+.texto2{
+  display: inline-block;
+  position: relative;
+  left: 10px;
+}

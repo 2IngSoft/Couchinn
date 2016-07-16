@@ -1,0 +1,60 @@
+body {
+  background-image: url(Fondo_Main_3.jpg);
+  background-size: cover;
+}
+.main, aside{
+  background-color: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  padding: 5px 5px;
+  margin: 10px;
+}
+.main{
+  display: inline-block;
+  left: 350px;
+  width: 700px;
+  top: 150px;
+  height: 490px;
+}
+.main article{
+  position: relative;
+  top: 100px;
+  left: 50px;
+}
+.main article h2{
+  position: relative;
+  left: 20px;
+}
+.datos{
+  display: inline-block;
+  position: absolute;
+  top: 35px;
+}
+/*
+.volver{
+  display: inline-block;
+  position: absolute;
+  left: 300px;
+  top: 450px;
+}
+*/
+.editar{
+  display: inline-block;
+  position: absolute;
+  left: 280px;
+  top: 250px;
+}
+.alertOK, .alertERROR {
+    position: absolute;
+    top: 30px;
+    color: white;
+    text-align: center;
+    padding: 0px 20px 0px 20px;
+}
+.alertOK{
+  background-color: lightgreen;
+  left: 150px;
+}
+.alertERROR{
+  background-color: #f44336; /* Red */
+  left: 300px;
+}

@@ -1,0 +1,42 @@
+aside{
+  padding: 8px;
+  float: left;
+  border-width: medium;
+  border-color: grey;
+  border-style: dotted;
+  border-radius: 10px;
+  font-family: Arial;
+  margin: 10px;
+  margin-top: 20px;
+  color: black;
+  font-weight: bolder;
+  background-color: lightgreen;
+  color:#393939;
+}
+
+#opcion_usuario{
+  float: right;
+}
+#encapsulador2{
+  background-color: lightgreen;
+  padding:10px 26.5px 10px 26.5px;
+  margin: -8px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  font-weight: bold;
+}
+
+#opciones{
+  font-weight: bold;
+  background-color: lightgreen;
+  margin: 33px -8px -8px -8px;
+  padding: 3px 0px 3px 5px;
+  border-color: grey;
+  border-spacing: 15px;
+  padding: 3px 0px 3px 8px;
+}
+
+footer{
+  margin-top: 2000px;
+  background-color: white;
+}

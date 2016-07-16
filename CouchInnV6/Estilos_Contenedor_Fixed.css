@@ -1,0 +1,57 @@
+.contenedor_fixed{
+  position: fixed;
+  top: 30%;
+  left: 12.5%;
+}
+.contiene_opciones_borde{
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  background-color: green;
+  border-color: silver;
+  border-width: medium;
+  border-style: solid;
+  /*height: 100%;*/
+}
+.contiene_opciones{
+  color: green;
+  font-family: Arial;
+  background-color: white;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  cursor: pointer;
+}
+.contiene_opciones div{
+  padding: 7px 5px 7px 5px;
+}
+.opcion_volver:hover, .opcion_solicitud:hover, .opcion_despublicar:hover, .opcion_eliminar:hover{
+  border-color: black;
+  border-width: thin;
+  border-style: solid;
+  padding: 6px 4px 6px 4px;
+  display: fixed top;
+  display: fixed left;
+}
+.opcion_volver{
+  color: white;
+  background-color: #36a716;
+  border-top-left-radius: 4px;
+}
+.opcion_solicitud{
+  color: white;
+  background-color: #2121cd;
+}
+.opcion_despublicar{
+  color: white;
+  background-color: #f36e02;
+}
+.opcion_eliminar{
+  color: white;
+  background-color: red;
+  border-bottom-left-radius: 4px;
+}
+.invicible{
+  color: rgba(82, 109, 21, 0);
+  border-color: rgba(31, 96, 40, 0);
+  background-color: rgba(193, 160, 124, 0);
+  position: absolute;
+}

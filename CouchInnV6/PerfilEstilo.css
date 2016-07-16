@@ -1,0 +1,45 @@
+body {
+  background-image: url(Fondo_Main_3.jpg);
+  background-size: cover;
+}
+.main, aside{
+  background-color: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  padding: 5px 5px;
+  margin: 10px;
+}
+.logo{
+  display: inline-block;
+  border-style: dashed;
+  border-radius: 10px;
+  background: gray;
+}
+.main{
+  display: inline-block;
+  left: 350px;
+  width: 700px;
+  top: 150px;
+  height: 490px;
+}
+.main article{
+  position: relative;
+  top: 100px;
+  left: 50px;
+}
+.main article h2{
+  position: relative;
+  left: 20px;
+}
+.datos{
+  display: inline-block;
+  position: absolute;
+  left: 180px;
+  top: 35px;
+  list-style: none;
+}
+.editar{
+  display: inline-block;
+  position: absolute;
+  left: 250px;
+  top: 200px;
+}

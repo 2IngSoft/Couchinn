@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery-3.0.0.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    :d
+    <input type="button" name="name" value="¡Clickeame!" onclick="accion()">
+  </body>
+</html>

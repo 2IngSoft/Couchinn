@@ -1,0 +1,42 @@
+#cartelRegistrarse{
+  font-family: Arial;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+#formularioRegistrarseDivision{
+  border-style: dashed;
+  border-color: grey;
+  border-width: 5px;
+  border-radius: 10px;
+  width: 40%;
+  margin-left: 30%;
+}
+
+#formularioRegistrarse{
+  background-color: white;
+  padding: 1% 5% 2% 12px;
+  border-radius: 5px;
+  font-family: Arial;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+#componenteInput{
+  float: right;
+  margin-right: 10%;
+}
+
+#enviarFormulario{
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: -10px;
+  border-style: dashed;
+  border-color: green;
+  border-radius: 10px;
+  font-family: Arial;
+  margin-left: 43%;
+}
