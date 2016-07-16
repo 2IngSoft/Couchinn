@@ -1,0 +1,81 @@
+.contenedor_publicacion_detalle{
+  font-family: Arial;
+  text-align: center;
+  margin-bottom: 5px;
+  width: 60%;
+  left: 350px;
+  /*margin-left: 20%;
+  margin-left: 130px;*/
+  background-color: white;
+  border-radius: 10px;
+  border-width: 4px;
+  border-color: grey;
+  border-style: dashed;
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  display: block;
+}
+.contenedor_publicacion_detalle div{
+  margin-top: 20px;
+}
+.galeria{
+  width: 450px;
+  margin-left: 22.5%;
+}
+.seleccion{
+  margin-bottom: -20px;
+}
+.titulo_detalle{
+  font-size: 25px;
+}
+.descripcion_detalle{
+  width: 60%;
+  margin-left: 20%;
+}
+
+/*HospedajeV2*/
+.divPreguntas{
+  position: relative;
+  display: block;
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+
+  top: 0px;
+  width: 1050px;
+  left: 200px;
+  background-color: white;
+  border-radius: 10px;
+  border-width: 4px;
+  border-color: grey;
+  border-style: dashed;
+}
+.cajaPregs{
+  margin: 15px 15px 0px 15px;
+  padding: 0px 30px 0px 10px;
+}
+.Rresponder, .Rrespuesta{
+  position: relative;
+  left: 40px;
+}
+.Rnom{
+  font-weight: bold;
+}
+.RnomB{
+  font-weight: bold;
+  color: blue;
+}
+.cajaComs2{
+  resize: none;
+  width: 980px;
+  margin: 15px;
+}
+.Bcomnt{
+  position: relative;
+  left: 500px;
+}
+.Rresponder{
+  color: blue;
+  border-style: none;
+  background-color: transparent;
+}

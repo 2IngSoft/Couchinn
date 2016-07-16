@@ -1,0 +1,117 @@
+header{
+  margin: -8px -8px 15px -8px;
+  text-align: center;
+}
+/*  ---> RESET DEL HEADER <---  */
+
+body{
+  background-image: url("Fondo_Main_3.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Arial;
+}
+#encabezado{
+  width: 100%;
+}
+
+#encabezadoPrincipal{
+  background-color: green;
+  height: 125px;
+}
+
+#logoCouchInn{
+  border-style: dashed;
+  border-color: grey;
+  border-width: 3px;
+  border-radius: 10px;
+  background-color: white;
+  width: 220px;
+}
+/*#premium_foto_crearPost{
+  margin-left: 20px;
+  margin-top: 2.6%;
+  padding-right: 5px;
+}*/
+
+#nombreApellido{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#contieneCartel{
+  background-color: #8bb835;
+  border-style: solid;
+  border-color: #8bb835;
+  border-width: 5px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #393939;
+}
+
+/*#sectorImagenUsuario{
+  margin-top: 2px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#imagenPerfil{
+  background-color: white;
+  border-color: #8bb835;
+  border-style: solid;
+  border-width: 4px;
+}
+
+#imagenPerfil:hover{
+  border-style: dotted;
+  background-color: white;
+  border-color: #8bb835;
+}
+
+#opcion_usuario{
+  padding-top: 35px;
+}*/
+
+#tabla_opciones{
+  border-radius: 20px;
+  border-color: grey;
+  border-style: dashed;
+  padding: 8px;
+  margin-left: 30px;
+}
+
+#submit_opcion_usuario{
+ border-style: dotted;
+ border-color: #8bb835;
+ background-color: white;
+ height: 50px;
+ font-weight: bold;
+ font-size: 13.7px;
+}
+
+#submit_opcion_usuario:hover{
+  background-color: #8bb835;
+  border-color: white;
+  cursor: pointer;
+}
+
+#desabilitado{
+  background-color: green;
+  border-style: dotted;
+  color: black;
+  height: 50px;
+  font-weight: bold;
+  font-size: 13.7px;
+  background-color: #8bb835;
+  border-color: white;
+}
+
+.boton1{
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.boton2{
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}

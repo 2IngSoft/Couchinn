@@ -1,0 +1,88 @@
+.alineador{
+  clear: both;
+  margin-left: -8px;
+  padding-top: 20px;
+  padding-left: 20px;
+  width: 80%;
+  font-family: Arial;
+  font-size: 13px;
+}
+.publicacion_borde{
+  float: left;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-style: dashed;
+  border-color: #4caf50;
+  border-width: thick;
+  background-color: silver;
+  border-radius: 10px;
+}
+.publicacion_borde:hover{
+  transform: scale(1.04,1.04);
+}
+.publicacion{
+  float: left;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+}
+.titulo{
+  font-weight: bold;
+  font-size: 14px;
+}
+.fecha{
+  margin-top: 5px;
+  font-size: 13px;
+}
+.filtros_busqueda_borde{
+  position: fixed;
+  top: 25%;
+  right: 0px;
+  background-color: silver;
+  border-style: dotted;
+  border-color: green;
+  /*border-right-width: 0px;*/
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.marco_busqueda{
+  background-color: green;
+  width: 87%;
+  padding: 10px 30px 10px 10px;
+  border-top-left-radius: 8px;
+}
+.filtros_borde_superior{
+  background-color: silver;
+  border-top-style: dashed;
+  border-color: green;
+}
+.filtros_marco{
+  background-color: white;
+  width: 87%;
+  padding: 10px 30px 5px 10px;
+  border-bottom-left-radius: 8px;
+}
+#filtros_marco div{
+  margin-bottom: 5px;
+}
+#reset{
+  margin-top: 15px;
+  margin-left: 90px;
+}
+.contenedor_cartel{
+  margin-left: 250px;
+  color: white;
+  background-color: rgba(34, 115, 27, 0.8);
+  position: absolute;
+  padding: 30px;
+  border-radius: 30px;
+}
+.cartel_sin_publicaciones{
+  font-size: 25px;
+  background-color:
+}
+.carita{
+  margin-left: 250px;
+  font-size: 125px;

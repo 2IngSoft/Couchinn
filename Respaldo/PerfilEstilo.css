@@ -1,0 +1,56 @@
+body {
+  background-image: url(Fondo_Main_3.jpg);
+  background-size: cover;
+}
+.main, aside{
+  background-color: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  padding: 5px 5px;
+  margin: 10px;
+}
+.logo{
+  display: inline-block;
+  border-style: dashed;
+  border-radius: 10px;
+  background: gray;
+}
+.main{
+  display: inline-block;
+  margin: 30px 300px 30px 300px;
+  width: 900px;
+  height: 520px;
+}
+.main article{
+  position: relative;
+  top: 100px;
+  left: 150px;
+}
+.main article h2{
+  position: relative;
+  left: 20px;
+}
+li, p{
+  margin: 3px 3px 3px 3px;
+}
+.labelsDatos, .datos{
+  font-size: 20px;
+}
+.labelsDatos{
+  position: relative;
+  left: 30px;
+}
+.datos{
+  display: inline-block;
+  position: absolute;
+  left: 250px;
+  top: 25px;
+  list-style: none;
+}
+.editar{
+  display: inline-block;
+  position: absolute;
+  left: 240px;
+  top: 240px;
+  font-size: 20px;
+  cursor: pointer;
+}

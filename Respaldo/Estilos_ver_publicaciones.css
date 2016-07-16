@@ -1,0 +1,162 @@
+.contendor_filtros{
+  height: 35px;
+  text-align: center;
+}
+.filtros{
+  display: inline;
+  margin-left: -205px;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  position: absolute;
+  height: 30px;
+}
+.activas{
+  float: left;
+  width: 170px;
+  border-color: silver;
+  border-top-left-radius: 10px;
+  border-width: 3px;
+  border-style: dotted;
+  border-right-width: 0px;
+  background-color: green;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.activas_seleccion{
+  float: left;
+  border-right-style: dotted;
+  border-right-width: 3px;
+  color: green;
+  background-color: white;
+  border-color: silver;
+}
+.inactivas{
+  float: left;
+  width: 170px;
+  border-color: silver;
+  border-top-right-radius: 10px;
+  border-width: 3px;
+  border-style: dotted;
+  border-left-width: 0px;
+  background-color: green;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.inactivas_seleccion{
+  /*float: left;*/
+  border-left-style: dotted;
+  border-left-width: 3px;
+  color: green;
+  background-color: white;
+  border-color: silver;
+}
+.contenedor_publicaciones{
+  margin-left: 20px;
+  padding: 20px;
+  margin-left: 60px;
+}
+.publicacion{
+  text-align: center;
+  font-family: Arial;
+  color: white;
+  float: left;
+  background-color: #36a716;
+  border-style: dotted;
+  border-width: 3px;
+  border-color: silver;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.publicacion:hover{
+  background-color: green;
+  border-width: 5px;
+  transform: scale(1.02, 1.02);
+}
+.publicacion_despublicada{
+  text-align: center;
+  font-family: Arial;
+  color: black;
+  float: left;
+  background-color: #ffc107;
+  border-style: dotted;
+  border-width: 3px;
+  border-color: silver;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.publicacion_despublicada:hover{
+  background-color: #ff9800;
+  border-width: 5px;
+  transform: scale(1.02, 1.02);
+}
+.img_portada{
+  float: left;
+  height: 53px;
+  margin-top: 3px;
+  margin-left: 6px;
+  /*padding-top: 3px;
+  padding-left: 6px;*/
+  border-radius: 5px;
+}
+.marco_imagen{
+  border-radius: 5px;
+}
+.titulo{
+  float:left;
+  font-size: 20px;
+  height: 39px;
+  padding-top: 17px;
+  padding-left: 25px;
+  width: 767px;
+}
+.solicitudes{
+  float: right;
+  width: 135px;
+  height: 40px;
+  padding-top: 16px;
+  border-radius: 5px;
+}
+.literal_solicitudes{
+  float: left;
+}
+.cant_solicitudes{
+  margin-left: 5px;
+  float: left;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-style: solid;
+  border-width: 1px;
+}
+.contenedor_despublicar{
+  float: left;
+  border-width: 5px;
+  border-style: dotted;
+  border-color: rgba(31, 237, 40, 0);
+  height: 35px;
+  padding-top: 15px;
+  padding-left: 5px;
+  margin-bottom: 5px;
+}
+.contenedor_cartel{
+  margin-left: 250px;
+  color: white;
+  background-color: rgba(34, 115, 27, 0.8);
+  position: absolute;
+  padding: 30px;
+  border-radius: 30px;
+}
+.cartel_sin_publicaciones{
+  font-size: 30px;
+}
+.carita{
+  margin-left: 250px;
+  font-size: 125px;
+}
